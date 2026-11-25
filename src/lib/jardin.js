@@ -4,13 +4,14 @@ const VERIF={"pommier-reine-des-reinettes": ["flor", "pollin", "recolte", "rust"
 /* ===================== DONNÉES CLIMAT (réelles) ===================== */
 // Station Toulouse-Blagnac (31069001, 151 m), Météo-France, données quotidiennes 1995-2024.
 // Par année : [année, jour du dernier gel de printemps (TN<=0, janv-juin), premier gel d'automne, TN minimale, jours TX>=30, jours TX>=35, jours de gel, pluie juin-août, pluie annuelle, nuits TN>=20]
-const YEARS=[[1995,112,309,-6.3,23,0,29,137,628,9],[1996,96,321,-6.1,28,0,25,148,729,4],[1997,47,304,-3.4,25,2,21,212,546,12],[1998,104,311,-7,22,4,31,74,510,5],[1999,60,325,-5.6,31,1,29,77,612,7],[2000,66,366,-5.9,26,0,26,229,729,9],[2001,58,314,-9.7,25,3,28,196,645,5],[2002,21,null,-3.2,19,0,10,211,693,1],[2003,50,298,-6.5,66,24,29,67,479,31],[2004,71,347,-4.4,27,2,27,112,766,12],[2005,73,323,-8.4,32,4,60,89,474,12],[2006,73,348,-5,37,10,35,139,625,19],[2007,35,294,-6.9,15,2,29,114,589,6],[2008,66,332,-4.5,25,4,15,157,720,4],[2009,84,292,-5.3,43,4,29,75,586,18],[2010,75,321,-7.6,29,4,53,121,596,10],[2011,65,353,-6.5,34,4,20,150,423,11],[2012,70,303,-12.5,49,11,37,109,436,12],[2013,75,330,-6.2,35,1,32,132,739,16],[2014,48,344,-5,19,0,10,238,689,2],[2015,65,327,-4.7,41,7,26,205,511,16],[2016,68,337,-2.3,37,2,16,142,577,8],[2017,26,319,-6.7,40,7,26,123,562,22],[2018,81,365,-6.9,51,4,13,139,690,16],[2019,44,324,-5.3,53,11,13,135,626,22],[2020,37,326,-2.8,43,10,9,116,625,18],[2021,79,334,-6,25,2,21,161,594,13],[2022,95,338,-6.1,71,24,28,63,397,34],[2023,66,330,-3.8,60,12,26,177,601,26],[2024,21,351,-5.4,39,7,10,139,607,21]];
+const REF_Y=[[1995,112,309,-6.3,23,0,29,137,628,9],[1996,96,321,-6.1,28,0,25,148,729,4],[1997,47,304,-3.4,25,2,21,212,546,12],[1998,104,311,-7,22,4,31,74,510,5],[1999,60,325,-5.6,31,1,29,77,612,7],[2000,66,366,-5.9,26,0,26,229,729,9],[2001,58,314,-9.7,25,3,28,196,645,5],[2002,21,null,-3.2,19,0,10,211,693,1],[2003,50,298,-6.5,66,24,29,67,479,31],[2004,71,347,-4.4,27,2,27,112,766,12],[2005,73,323,-8.4,32,4,60,89,474,12],[2006,73,348,-5,37,10,35,139,625,19],[2007,35,294,-6.9,15,2,29,114,589,6],[2008,66,332,-4.5,25,4,15,157,720,4],[2009,84,292,-5.3,43,4,29,75,586,18],[2010,75,321,-7.6,29,4,53,121,596,10],[2011,65,353,-6.5,34,4,20,150,423,11],[2012,70,303,-12.5,49,11,37,109,436,12],[2013,75,330,-6.2,35,1,32,132,739,16],[2014,48,344,-5,19,0,10,238,689,2],[2015,65,327,-4.7,41,7,26,205,511,16],[2016,68,337,-2.3,37,2,16,142,577,8],[2017,26,319,-6.7,40,7,26,123,562,22],[2018,81,365,-6.9,51,4,13,139,690,16],[2019,44,324,-5.3,53,11,13,135,626,22],[2020,37,326,-2.8,43,10,9,116,625,18],[2021,79,334,-6,25,2,21,161,594,13],[2022,95,338,-6.1,71,24,28,63,397,34],[2023,66,330,-3.8,60,12,26,177,601,26],[2024,21,351,-5.4,39,7,10,139,607,21]];
 // Moyennes mensuelles 1995-2024 : [mois, TN moy, TX moy, pluie moy (mm)]
-const MONTHS=[[1,3,9.8,57],[2,3.4,11.6,36],[3,5.7,15.1,47],[4,8.1,17.9,59],[5,11.6,21.6,69],[6,15.4,26.2,57],[7,17.2,28.5,39],[8,17.2,28.7,43],[9,14.1,25.1,38],[10,11.3,20.5,52],[11,6.3,13.7,55],[12,3.6,10.6,48]];
+const REF_M=[[1,3,9.8,57],[2,3.4,11.6,36],[3,5.7,15.1,47],[4,8.1,17.9,59],[5,11.6,21.6,69],[6,15.4,26.2,57],[7,17.2,28.5,39],[8,17.2,28.7,43],[9,14.1,25.1,38],[10,11.3,20.5,52],[11,6.3,13.7,55],[12,3.6,10.6,48]];
 // Dernier jour de janvier à juin avec TN <= -2 °C (gel pouvant abîmer les fleurs) ; 0 = aucun
-const GEL2={1995:16,1996:72,1997:47,1998:38,1999:45,2000:26,2001:33,2002:18,2003:49,2004:71,2005:72,2006:73,2007:30,2008:34,2009:51,2010:70,2011:38,2012:54,2013:59,2014:0,2015:41,2016:48,2017:26,2018:59,2019:35,2020:20,2021:19,2022:94,2023:60,2024:21};
-const COMMUNES=[{slug:"toulouse-31555",nom:"Toulouse",insee:"31555",cp:"31000",dep:"Haute-Garonne",depCode:"31",station:"Toulouse-Blagnac (151 m d'altitude, à 6 km du centre)",argile:{moyenOuFort:98,fort:38},sols:{tendance:"mixte",resume:"calcaire sur les coteaux (terreforts), plutôt acide sur les terrasses de la Garonne (boulbènes)"}}];
-const OTHER=["Rennes","Lyon","Bordeaux","Lille","Strasbourg","Nantes","Marseille","Montpellier","Toulon","Tours","Tournefeuille","Colomiers"];
+const REF_G={1995:16,1996:72,1997:47,1998:38,1999:45,2000:26,2001:33,2002:18,2003:49,2004:71,2005:72,2006:73,2007:30,2008:34,2009:51,2010:70,2011:38,2012:54,2013:59,2014:0,2015:41,2016:48,2017:26,2018:59,2019:35,2020:20,2021:19,2022:94,2023:60,2024:21};
+const SSR=typeof document==="undefined";   // rendu à la construction : pages allégées, le navigateur complète l'affichage
+const TOULOUSE_REF={slug:"toulouse-31555",nom:"Toulouse",insee:"31555",cp:"31000",dep:"Haute-Garonne",depCode:"31",station:"Toulouse-Blagnac (151 m d'altitude, à 6 km du centre)",argile:{moyenOuFort:98,fort:38},sols:{tendance:"mixte",resume:"calcaire sur les coteaux (terreforts), plutôt acide sur les terrasses de la Garonne (boulbènes)"}};
+let YEARS=REF_Y, MONTHS=REF_M, GEL2=REF_G, COM=null;
 
 
 /* ===================== ADRESSES ===================== */
@@ -206,23 +207,37 @@ const r1=x=>Math.round(x*10)/10;
 /* Synthèse climat */
 function climat(){
   const last=YEARS.map(y=>leapNorm(y[0],y[1])), first=YEARS.map(y=>leapNorm(y[0],y[2]||366));
-  const A=YEARS.slice(0,15),B=YEARS.slice(15);
-  return {
+  const y0=YEARS[0][0], y1=YEARS[YEARS.length-1][0], midY=y0+15;
+  const A=YEARS.filter(y=>y[0]<midY),B=YEARS.filter(y=>y[0]>=midY), R=a=>a.filter(v=>v!=null);
+  const sansGel=YEARS.filter(y=>!y[1]).length, avecGel=last.filter(Boolean);
+  return { y0, y1, midY, sansGel, gelRare:sansGel>YEARS.length/2, lastMedGel:avecGel.length?Math.round(median(avecGel)):null,
     n:YEARS.length, last, lastMed:Math.round(median(last)), lastD9:quant(last,.9), lastMax:Math.max(...last),
     firstMed:Math.round(median(first)), firstD1:quant(first,.1),
     mins:YEARS.map(y=>y[3]), minMean:r1(mean(YEARS.map(y=>y[3]))), minRec:Math.min(...YEARS.map(y=>y[3])), minRecYear:YEARS.find(y=>y[3]===Math.min(...YEARS.map(z=>z[3])))[0],
     d30:Math.round(mean(YEARS.map(y=>y[4]))), d30A:Math.round(mean(A.map(y=>y[4]))), d30B:Math.round(mean(B.map(y=>y[4]))),
     d35B:Math.round(mean(B.map(y=>y[5]))), gelA:Math.round(mean(A.map(y=>y[6]))), gelB:Math.round(mean(B.map(y=>y[6]))),
-    pluieEte:Math.round(mean(YEARS.map(y=>y[7]))), pluieAn:Math.round(mean(YEARS.map(y=>y[8]))),
-    pluieA:Math.round(mean(A.map(y=>y[8]))), pluieB:Math.round(mean(B.map(y=>y[8]))),
+    pluieEte:Math.round(mean(R(YEARS.map(y=>y[7])))), pluieAn:Math.round(mean(R(YEARS.map(y=>y[8])))),
+    pluieA:Math.round(mean(R(A.map(y=>y[8])))), pluieB:Math.round(mean(R(B.map(y=>y[8])))),
     n20A:Math.round(mean(A.map(y=>y[9]))), n20B:Math.round(mean(B.map(y=>y[9])))
   };
 }
-const C=climat();
+let C=climat();
 // Plantation des plantes gélives : quand la moyenne des minimales dépasse 10 °C (interpolation entre milieux de mois)
 function dateNuits10(){ for(let m=0;m<11;m++){const a=MONTHS[m][1],b=MONTHS[m+1][1]; if(a<10&&b>=10){const f=(10-a)/(b-a);const mid=[15,46,74,105,135,166,196,227,258,288,319,349];return Math.round(mid[m]+f*(mid[m+1]-mid[m]));}} return null;}
-const NUITS10=dateNuits10();
-const debutQuinzaine=n=>{const d=new Date(Date.UTC(2025,0,n));return (d.getUTCDate()<=15?"début ":"mi-")+MOIS[d.getUTCMonth()];};
+let NUITS10=dateNuits10();
+/* Commune courante : la construction l'installe avant chaque page, le navigateur au chargement */
+const titreStation=n=>n.toLowerCase().replace(/(^|[\s\-'’(])([a-zà-ÿ])/g,(m,a,b)=>a+b.toUpperCase()).replace(/\bFd\b/,"Ferrand");
+function vueCommune(d){ if(!d) return null; if(d.insee) return d;
+  return {slug:d.slug,nom:d.nom,insee:d.code,cp:d.cp,dep:d.depNom||"",depCode:d.dep,pop:d.pop||0,key:d.key,
+    station:`${titreStation(d.stNom)} (${d.stAlt} m d'altitude, à ${d.dist} km)`+(d.corr?`, températures corrigées de ${nf(d.corr)} °C pour l'altitude de la commune (${d.alt} m)`:""),
+    argile:d.argile||null, sols:d.sols||null}; }
+function setCommune(c,clim){ COM=c?vueCommune(c):null;
+  if(clim){ YEARS=clim.Y; MONTHS=clim.M; GEL2=clim.G; } else { YEARS=REF_Y; MONTHS=REF_M; GEL2=REF_G; }
+  C=climat(); NUITS10=dateNuits10(); }
+const setToulouseRef=()=>{ COM=TOULOUSE_REF; YEARS=REF_Y; MONTHS=REF_M; GEL2=REF_G; C=climat(); NUITS10=dateNuits10(); };
+const extra=c=>!!c&&(c.pop||0)>=10000;      // pages « mois » et « quand planter » : communes de plus de 10 000 habitants
+const argNiveau=c=>!c||!c.argile?null:c.argile.moyenOuFort>=50?"souvent argileux":c.argile.moyenOuFort>=20?"argileux par endroits":"rarement argileux";
+const debutQuinzaine=n=>{if(!n)return "après la mi-mai, sous abri";const d=new Date(Date.UTC(2025,0,n));return (d.getUTCDate()<=15?"début ":"mi-")+MOIS[d.getUTCMonth()];};
 
 /* Verdict d'une plante pour la commune et les réponses */
 const ANS={expo:null,sol:null};
@@ -242,7 +257,7 @@ function verdict(p){
   // Froid
   K="rust";
   const rust=p.rust??p.rustL;
-  if(p.tendre){ R.push(["info",`Gèle à 0 °C : plantez en pleine terre à partir de ${debutQuinzaine(NUITS10)}, quand les nuits dépassent 10 °C en moyenne.`]); }
+  if(p.tendre){ R.push(["info",NUITS10?`Gèle à 0 °C : plantez en pleine terre à partir de ${debutQuinzaine(NUITS10)}, quand les nuits dépassent 10 °C en moyenne.`:"Gèle à 0 °C : plantez-la en pleine terre une fois les gelées passées."]); }
   else if(rust!=null && (p.rust!=null || p.hiver)){ const n=C.mins.filter(t=>t<rust).length;
     if(n===0) R.push(["ok",`Supporte les hivers de la commune : ${nf(rust)} °C supportés, ${nf(C.minRec)} °C au plus froid depuis ${YEARS[0][0]}.`]);
     else if(n<=3) R.push(["warn",`Le froid est descendu sous ${nf(rust)} °C ${n} hiver${n>1?"s":""} sur ${C.n} (${nf(C.minRec)} °C en ${C.minRecYear}) : protégez la plante jeune ou en pot.`]);
@@ -255,16 +270,16 @@ function verdict(p){
     else R.push(["ok",`Floraison à l'abri des gelées tardives (gel à −2 °C ou moins après le début de la floraison ${n} année${n>1?"s":""} sur ${C.n}).`]); }
   // Chaleur
   K="chal";
-  if(p.chal===1) R.push(["warn",`Craint la chaleur : ${C.d30B} jours à 30 °C ou plus par an depuis 2010. Cultivez-la au printemps et à l'automne, ou à mi-ombre.`]);
+  if(p.chal===1) R.push(["warn",`Craint la chaleur : ${C.d30B} jours à 30 °C ou plus par an depuis ${C.midY}. Cultivez-la au printemps et à l'automne, ou à mi-ombre.`]);
   // Sécheresse
   K="sech";
   if(p.sech===1) R.push([(p.cat==="legume"||p.cat==="aromatique")?"info":"warn",`Arrosage régulier l'été : ${C.pluieEte} mm de pluie en moyenne de juin à août.`]);
   else if(p.sech===3) R.push(["ok","Résiste bien à la sécheresse une fois installée."]);
   // Sol
   K="argile";
-  const argCommune = COMMUNES[0].argile.moyenOuFort>=50;
+  const argCommune = !!(COM&&COM.argile&&COM.argile.moyenOuFort>=50);
   const argileux = ANS.sol==="argileux"?true:ANS.sol==="leger"?false:argCommune;
-  const terre = ANS.sol?"Votre terre est argileuse":`Sol souvent argileux à ${COMMUNES[0].nom}`;
+  const terre = ANS.sol?"Votre terre est argileuse":`Sol souvent argileux à ${COM?COM.nom:"votre commune"}`;
   if(argileux){ if(p.argile===0) R.push(["warn",`${terre} : cette plante craint l'eau stagnante. Plantez-la en butte ou ajoutez du gravier et du sable.`]);
                else if(p.argile===2) R.push(["ok","S'accommode d'un sol argileux."]); }
   if(ANS.sol==="leger"&&p.sech===1) R.push(["warn","Terre légère qui sèche vite : arrosez souvent l'été et paillez le pied."]);
@@ -273,7 +288,7 @@ function verdict(p){
   if(p.calc==="acide"){
     if(ANS.sol==="calcaire") R.push(["bad","Votre terre est calcaire : il lui faut une terre acide (pH 4,5 à 5,5). Cultivez-le en grand bac rempli de terre de bruyère."]);
     else if(ANS.sol==="acide") R.push(["ok","Votre terre acide lui convient."]);
-    else R.push(["warn",`Il lui faut une terre acide (pH 4,5 à 5,5). À ${COMMUNES[0].nom}, la terre est souvent calcaire sur les coteaux : vérifiez la vôtre, ou plantez-le en bac de terre de bruyère.`]); }
+    else R.push(["warn",`Il lui faut une terre acide (pH 4,5 à 5,5)${COM&&COM.sols?` ; à ${COM.nom}, la terre est ${COM.sols.resume.replace(/ \((terreforts|boulbènes)\)/g,"")}`:""} : vérifiez la vôtre, ou plantez-le en bac de terre de bruyère.`]); }
   else if(p.calc==="craint"){
     if(ANS.sol==="calcaire") R.push(["warn",`Terre calcaire : risque de feuilles qui jaunissent (chlorose). ${p.calcNote||""}`.trim()]);
     else if(!ANS.sol) R.push(["info",`Craint les terres calcaires (feuilles qui jaunissent). ${p.calcNote||""}`.trim()]); }
@@ -284,7 +299,7 @@ function verdict(p){
     else R.push(["info","Fleurs bleues en terre acide, roses en terre calcaire."]); }
   // Besoin en froid
   K="froid";
-  if(p.froid==="élevé") R.push(["info",`Besoin de froid en hiver élevé : ${C.gelB} jours de gel par an depuis 2010, contre ${C.gelA} avant. À surveiller si les hivers continuent de s'adoucir.`]);
+  if(p.froid==="élevé") R.push(["info",`Besoin de froid en hiver élevé : ${C.gelB} jours de gel par an depuis ${C.midY}, contre ${C.gelA} avant. À surveiller si les hivers continuent de s'adoucir.`]);
   // Espèce exotique envahissante
   K="invasive";
   if(p.invasive) R.push(["bad","Classé espèce exotique envahissante en France hexagonale (Office français de la biodiversité) : il se ressème hors des jardins, notamment dans le Sud-Ouest. Pour attirer les papillons, préférez par exemple la lavande."]);
@@ -322,7 +337,7 @@ const moisRange=a=>{if(!a||!a.length)return "";if(a.length===12)return "toute l'
   for(const m0 of a){if(set.has(m0===1?12:m0-1)||seen.has(m0))continue;let m=m0;const run=[m];seen.add(m);while(set.has(m===12?1:m+1)&&!seen.has(m===12?1:m+1)){m=m===12?1:m+1;run.push(m);seen.add(m);}runs.push(run);}
   const ab=m=>({1:"janv.",2:"févr.",3:"mars",4:"avril",5:"mai",6:"juin",7:"juil.",8:"août",9:"sept.",10:"oct.",11:"nov.",12:"déc."})[m];
   return runs.map(r=>r.length===1?ab(r[0]):ab(r[0])+" → "+ab(r[r.length-1])).join(", ");};
-const quandPlanter=p=>p.tendre?`dès ${debutQuinzaine(NUITS10)}`:(p.plant&&p.plant.length?moisRange(p.plant):"");
+const quandPlanter=p=>p.tendre?(COM&&NUITS10?`dès ${debutQuinzaine(NUITS10)}`:"après les gelées"):(p.plant&&p.plant.length?moisRange(p.plant):"");
 
 function heroArt(){
   const L=(x,y,r,a,c)=>`<path transform="translate(${x} ${y}) rotate(${a})" d="M0 0 C${r*.45} ${-r*.42} ${r*1.05} ${-r*.36} ${r*1.4} 0 C${r*1.05} ${r*.36} ${r*.45} ${r*.42} 0 0Z" fill="${c}"/>`;
@@ -413,8 +428,8 @@ function pageAccueil(){
       <h1>Que planter dans mon jardin ?</h1>
       <p class="lead">Les fruitiers, légumes et plantes qui réussiront chez vous, et quand les planter, d'après le climat et le sol de votre ville.</p>
       ${searchBox("q1")}
-      ${villeMemo()?`<div class="examples">Votre ville : <a href="#commune-${villeMemo().slug}">${villeMemo().nom}</a></div>`:`<div class="examples">Essayer : <a href="#commune-toulouse-31555">Toulouse</a> <span class="note" style="margin-left:6px">(démo)</span></div>`}
-      ${villeMemo()?`<a class="homeseason" href="#que-planter-en-${moisSlug(MOIS_COURANT)}-${villeMemo().slug}" style="text-decoration:none;color:inherit"><span><small style="color:var(--muted);font-weight:600">En ${MOIS[MOIS_COURANT-1]}</small><br><strong>${SAISON_FRUITIERS.includes(MOIS_COURANT)?"C'est la saison des arbres fruitiers":"Ce qui se plante ce mois-ci"}</strong></span><span class="month-cta" style="margin:0">Que planter en ${MOIS[MOIS_COURANT-1]} à ${villeMemo().nom} <i>→</i></span></a>`
+      ${villeMemo()?`<div class="examples">Votre ville : <a href="#commune-${villeMemo().slug}">${villeMemo().nom}</a></div>`:`<div class="examples">Par exemple : <a href="#commune-toulouse-31555">Toulouse</a> · <a href="#commune-lille-59350">Lille</a> · <a href="#commune-strasbourg-67482">Strasbourg</a> · <a href="#commune-brest-29019">Brest</a></div>`}
+      ${villeMemo()?`<a class="homeseason" href="${extra(villeMemo())?`#que-planter-en-${moisSlug(MOIS_COURANT)}-${villeMemo().slug}`:url("commune-"+villeMemo().slug)+"#sec-mois"}" style="text-decoration:none;color:inherit"><span><small style="color:var(--muted);font-weight:600">En ${MOIS[MOIS_COURANT-1]}</small><br><strong>${SAISON_FRUITIERS.includes(MOIS_COURANT)?"C'est la saison des arbres fruitiers":"Ce qui se plante ce mois-ci"}</strong></span><span class="month-cta" style="margin:0">Que planter en ${MOIS[MOIS_COURANT-1]} à ${villeMemo().nom} <i>→</i></span></a>`
       :`<div class="homeseason"><span><small style="color:var(--muted);font-weight:600">En ${MOIS[MOIS_COURANT-1]}</small><br><strong>${SAISON_FRUITIERS.includes(MOIS_COURANT)?"C'est la saison des arbres fruitiers":"Ce qui se plante ce mois-ci"}</strong></span><button class="month-cta" style="margin:0" onclick="focusVille()">Voir ce qui se plante chez moi <i>→</i></button></div>`}
     </div>
     <div class="pic">${heroArt()}</div>
@@ -439,13 +454,15 @@ function searchBox(id){
     <input id="${id}" type="search" placeholder="Votre ville ou code postal" aria-label="Votre ville ou code postal" oninput="sugg('${id}')">
     <button class="btn" type="submit" aria-label="Voir mes plantes"><span class="long">Voir mes plantes</span><span class="short">Voir</span></button><div class="sugg" id="${id}-s" hidden></div></form>`;
 }
-W.sugg=id=>{const v=$("#"+id).value.trim().toLowerCase();const box=$("#"+id+"-s");if(v.length<2){box.hidden=true;return;}
-  const hits=COMMUNES.filter(c=>c.nom.toLowerCase().startsWith(v)||c.cp.startsWith(v));
-  const others=OTHER.filter(o=>o.toLowerCase().startsWith(v)&&!hits.some(h=>h.nom===o));
-  box.innerHTML=hits.map(c=>`<button type="button" onclick="location.href=url('commune-${c.slug}')">${c.nom} <span class="note">${c.cp}</span></button>`).join("")+
-   others.slice(0,3).map(o=>`<div class="no">${o} : pas encore dans la maquette</div>`).join("")+(!hits.length&&!others.length?`<div class="no">Dans la maquette, seule Toulouse est disponible.</div>`:"");
+let IDX=null;
+async function index(){ if(IDX) return IDX; try{ IDX=await (await fetch(BASE+"/data/communes.json")).json(); }catch(e){ IDX=[]; } return IDX; }
+async function chercher(v){ const q=norm(v.trim()).replace(/['’-]/g," "), I=await index(); if(q.length<2) return [];
+  const num=/^\d/.test(q); return I.filter(c=>num?c[1].startsWith(q):norm(c[0]).replace(/['’-]/g," ").startsWith(q)).slice(0,8); }
+W.sugg=async id=>{const v=$("#"+id).value, box=$("#"+id+"-s"); if(v.trim().length<2){box.hidden=true;return;}
+  const hits=await chercher(v); if($("#"+id).value!==v) return;
+  box.innerHTML=hits.length?hits.map(c=>`<a class="sg" href="${url("commune-"+c[2])}">${c[0]} <span class="note">${c[1]}</span></a>`).join(""):`<div class="no">Aucune commune trouvée.</div>`;
   box.hidden=false;};
-W.goSearch=id=>{const v=$("#"+id).value.trim().toLowerCase();const c=COMMUNES.find(c=>c.nom.toLowerCase().startsWith(v)||c.cp.startsWith(v));if(c)location.href=url("commune-"+c.slug);else sugg(id);return false;};
+W.goSearch=id=>{chercher($("#"+id).value).then(h=>{ if(h.length) location.href=url("commune-"+h[0][2]); else W.sugg(id); }); return false;};
 
 function chartTemp(){
   const W=560,H=220,pl=34,pr=14,pt=16,pb=26, x=i=>pl+i*(W-pl-pr)/11, mn=-2,mx=32, y=v=>pt+(mx-v)*(H-pt-pb)/(mx-mn);
@@ -495,15 +512,17 @@ function filtrer(){
   return P.map(p=>({p,v:verdict(p)})).filter(x=>(FILTRE.cat==="tout"||x.p.cat===FILTRE.cat)&&(!FILTRE.rare||x.p.rare)&&(!q||norm(x.p.nom+" "+x.p.variete).includes(q)))
     .sort((a,b)=>CATORD.indexOf(a.p.cat)-CATORD.indexOf(b.p.cat)||a.p.nom.localeCompare(b.p.nom,"fr"));
 }
+function ligneLite(x){ return `<li><a href="#plante-${x.p.id}">${x.p.nom} ‘${x.p.variete}’</a></li>`; }
 function section(arr,lvl,titre,sous){
   if(!arr.length)return "";
+  if(SSR) return `<div class="group" id="g-${lvl}"><div class="group-h"><h2>${titre}</h2><span class="pill tag t-${lvl}">${arr.length}</span></div><p class="note">${sous}</p><ul class="plite">${arr.map(ligneLite).join("")}</ul></div>`;
   return `<div class="group" id="g-${lvl}"><div class="group-h"><h2>${titre}</h2><span class="pill tag t-${lvl}">${arr.length}</span></div><p class="note">${sous}</p><div class="plist">${arr.map(x=>carte(x.p,x.v)).join("")}</div></div>`;
 }
 function listeHTML(){
   const sel=filtrer(), V=FILTRE.vue;
   const ok=V==="warn"?[]:sel.filter(x=>x.v.lvl==="ok"), warn=V==="ok"?[]:sel.filter(x=>x.v.lvl==="warn"), bad=V?[]:sel.filter(x=>x.v.lvl==="bad");
   const html=section(ok,"ok","Bons choix","Ils réussissent bien ici, sans soin particulier.")+section(warn,"warn","Possibles, avec une précaution","Ça peut marcher : la précaution est indiquée sur chaque plante.")+
-    (bad.length?`<details class="fold"><summary>À éviter dans votre jardin (${bad.length})</summary><div class="in"><div class="plist">${bad.map(x=>carte(x.p,x.v)).join("")}</div></div></details>`:"");
+    (bad.length?`<details class="fold"><summary>À éviter dans votre jardin (${bad.length})</summary><div class="in">${SSR?`<ul class="plite">${bad.map(ligneLite).join("")}</ul>`:`<div class="plist">${bad.map(x=>carte(x.p,x.v)).join("")}</div>`}</div></details>`:"");
   return {html:html||`<div class="empty">Aucune plante ne correspond. <button class="linkbtn" onclick="resetF()">Effacer les filtres</button></div>`, n:ok.length+warn.length+bad.length};
 }
 function filtresActifs(){return (FILTRE.cat!=="tout")+(!!ANS.expo)+(!!ANS.sol)+FILTRE.rare+(!!FILTRE.vue)+(!!FILTRE.q.trim());}
@@ -531,6 +550,14 @@ W.setSol=k=>{ANS.sol=ANS.sol===k?null:k;memoJardin();majListe(false);};
 W.toggleRare=()=>{FILTRE.rare=!FILTRE.rare;majListe(false);};
 W.resetF=()=>{FILTRE.cat="tout";FILTRE.vue=null;FILTRE.rare=false;FILTRE.q="";ANS.expo=null;ANS.sol=null;memoJardin();majListe(false);};
 
+
+function resumeClimat(c){
+  const hiver=C.minMean>-4?"doux":C.minMean>-8?"frais":C.minMean>-12?"froid":"très froid";
+  const ete=C.d30B>=30?"chauds":C.d30B>=10?"assez chauds":"plutôt frais";
+  const sec=C.pluieEte<120?" et secs":C.pluieEte>250?" et arrosés":"";
+  const sol=c.argile?` et un sol ${argNiveau(c)} : ${c.argile.moyenOuFort} % de la commune exposée moyennement ou fortement aux argiles, d'après la carte officielle (<a href="https://argilearena.fr/argile/${c.slug}/">voir Argile Arena</a>).`:".";
+  const terre=c.sols?` La terre est ${c.sols.resume}, d'après la carte des sols INRAE : dans votre jardin, elle peut être différente, surtout si elle a été rapportée.`:"";
+  return `Un hiver ${hiver}, des étés ${ete}${sec} (${C.pluieEte} mm de pluie de juin à août)${sol}${terre}`; }
 function pageCommune(c){
   const all=P.map(p=>verdict(p).lvl), nOk=all.filter(l=>l==="ok").length, nW=all.filter(l=>l==="warn").length;
   const ce=P.filter(p=>((p.plant||[]).includes(MOIS_COURANT)||(p.semis||[]).includes(MOIS_COURANT))&&verdict(p).lvl!=="bad");
@@ -543,35 +570,35 @@ function pageCommune(c){
       <button class="cnt ok" data-v="ok" onclick="setVue('ok')"><b id="n-ok">${nOk}</b><span><strong>bons choix</strong><small>sans soin particulier</small></span></button>
       <button class="cnt warn" data-v="warn" onclick="setVue('warn')"><b id="n-warn">${nW}</b><span><strong>possibles</strong><small>avec une précaution</small></span></button>
     </div>
-    <p class="soilline"><span class="sunico" style="background:#a8714a"></span>Sol souvent argileux, ${c.sols.resume.replace(/ \((terreforts|boulbènes)\)/g,"")} · <a href="#actu-connaitre-sa-terre">connaître votre terre</a></p>
+    <p class="soilline"><span class="sunico" style="background:#a8714a"></span>${argNiveau(c)?"Sol "+argNiveau(c):"Sol"}${c.sols?", "+c.sols.resume.replace(/ \((terreforts|boulbènes)\)/g,""):""} · <a href="#actu-connaitre-sa-terre">connaître votre terre</a></p>
     <nav class="toc" aria-label="Sur cette page"><button onclick="goTo('plantes')">Les plantes</button><button onclick="goTo('sec-mois')">À planter en ${MOIS[MOIS_COURANT-1]} <span>${ce.length}</span></button><button onclick="goTo('sec-climat')">Le climat</button></nav>
   </div></section>
-  <section id="plantes" class="plantes"><div class="fbar"><div class="wrap" id="fbar-ctrl">${barreHTML()}</div></div>
+  <section id="plantes" class="plantes"><div class="fbar"><div class="wrap" id="fbar-ctrl">${SSR?"":barreHTML()}</div></div>
     <div class="wrap" id="plist-wrap" style="padding-bottom:56px">${listeHTML().html}</div></section>
   <section class="blk soft" id="sec-mois"><div class="wrap">
     <p class="kicker">C'est le moment</p><h2>À planter en ${MOIS[MOIS_COURANT-1]}</h2>
-    <a class="month-cta" href="#que-planter-en-${moisSlug(MOIS_COURANT)}-${c.slug}">Voir tout ce qui se plante en ${MOIS[MOIS_COURANT-1]} <i>→</i></a>
-    <div class="month" style="margin-top:22px">${ce.length?ce.map(p=>`<a href="#plante-${p.id}">${av(p)}<span><strong>${p.nom}</strong><small>‘${p.variete}’ · ${(p.plant||[]).includes(MOIS_COURANT)?"planter":"semer"}</small>${p.cat==="fruitier"&&POLLF[p.pollin.type]?`<small class="${POLLF[p.pollin.type][0]}-t">${POLLF[p.pollin.type][1].split(" :")[0]}</small>`:""}</span></a>`).join(""):`<div class="empty">Rien à planter ce mois-ci dans le catalogue de la maquette.</div>`}</div>
+    ${extra(c)?`<a class="month-cta" href="#que-planter-en-${moisSlug(MOIS_COURANT)}-${c.slug}">Voir tout ce qui se plante en ${MOIS[MOIS_COURANT-1]} <i>→</i></a>`:""}
+    ${SSR?`<p class="note" style="margin-top:14px">${ce.length} plantes de la liste se plantent ou se sèment ce mois-ci.</p>`:`<div class="month" style="margin-top:22px">${ce.length?ce.map(p=>`<a href="#plante-${p.id}">${SSR?"":av(p)}<span><strong>${p.nom}</strong><small>‘${p.variete}’ · ${(p.plant||[]).includes(MOIS_COURANT)?"planter":"semer"}</small>${p.cat==="fruitier"&&POLLF[p.pollin.type]?`<small class="${POLLF[p.pollin.type][0]}-t">${POLLF[p.pollin.type][1].split(" :")[0]}</small>`:""}</span></a>`).join(""):`<div class="empty">Rien à planter ce mois-ci dans le catalogue de la maquette.</div>`}</div>`}
   </div></section>
 
   <section class="blk" id="sec-climat"><div class="wrap">
     <p class="kicker">Pourquoi ces conseils</p><h2>Le climat et le sol de ${c.nom}</h2>
-    <p class="lead">Un hiver doux, des étés chauds et secs (${C.pluieEte} mm de pluie de juin à août) et un sol souvent argileux : ${c.argile.moyenOuFort} % de la commune, d'après la carte officielle (<a href="https://argilearena.fr/argile/toulouse-31555/">voir Argile Arena</a>). La terre est ${c.sols.resume}, d'après la carte des sols INRAE : dans votre jardin, elle peut être différente, surtout si elle a été rapportée.</p>
+    <p class="lead">${resumeClimat(c)}</p>
     <div class="facts">
-      <div class="fact"><div class="k">Dernières gelées</div><div class="v">${fmtDoy(C.lastMed)}</div><div class="s">en moyenne. Gel après le ${fmtDoy(C.lastD9)} 1 printemps sur 10, jamais après le ${fmtDoy(C.lastMax)}.</div></div>
+      ${C.gelRare?`<div class="fact"><div class="k">Gelées de printemps</div><div class="v">Rares</div><div class="s">aucune gelée ${C.sansGel} printemps sur ${C.n}${C.lastMax?` ; la plus tardive le ${fmtDoy(C.lastMax)}`:""}.</div></div>`:`<div class="fact"><div class="k">Dernières gelées</div><div class="v">${fmtDoy(C.lastMed)}</div><div class="s">en moyenne. Gel après le ${fmtDoy(C.lastD9)} 1 printemps sur 10, jamais après le ${fmtDoy(C.lastMax)}.</div></div>`}
       <div class="fact"><div class="k">Froid de l'hiver</div><div class="v">${nf(C.minMean)} °C</div><div class="s">au plus froid d'un hiver ordinaire. Record : ${nf(C.minRec)} °C en ${C.minRecYear}.</div></div>
-      <div class="fact"><div class="k">Chaleur de l'été</div><div class="v">${C.d30B} jours</div><div class="s">à 30 °C ou plus par an depuis 2010, contre ${C.d30A} entre 1995 et 2009.</div></div>
+      <div class="fact"><div class="k">Chaleur de l'été</div><div class="v">${C.d30B} jours</div><div class="s">à 30 °C ou plus par an depuis ${C.midY}, contre ${C.d30A} entre ${C.y0} et ${C.midY-1}.</div></div>
     </div>
     <details class="fold"><summary>Mois par mois, et ce qui a changé en 30 ans</summary><div class="in">
-      <div class="charts"><div><h3 style="font-size:17px;margin-bottom:8px">Températures</h3>${chartTemp()}</div><div><h3 style="font-size:17px;margin-bottom:8px">Pluie</h3>${chartPluie()}</div></div>
-      <div class="compare"><span></span><span class="h">1995-2009</span><span class="h">2010-2024</span>
+      ${SSR?"":`<div class="charts"><div><h3 style="font-size:17px;margin-bottom:8px">Températures</h3>${chartTemp()}</div><div><h3 style="font-size:17px;margin-bottom:8px">Pluie</h3>${chartPluie()}</div></div>`}
+      <div class="compare"><span></span><span class="h">${C.y0}-${C.midY-1}</span><span class="h">${C.midY}-${C.y1}</span>
         <span>Jours à 30 °C ou plus, par an</span><span class="num">${C.d30A}</span><span class="num">${C.d30B}</span>
         <span>Nuits à 20 °C ou plus, par an</span><span class="num">${C.n20A}</span><span class="num">${C.n20B}</span>
         <span>Jours de gel, par an</span><span class="num">${C.gelA}</span><span class="num">${C.gelB}</span>
         <span>Pluie par an</span><span class="num">${C.pluieA} mm</span><span class="num">${C.pluieB} mm</span></div>
       <p class="note" style="margin-top:16px">Et en 2050 ? Les projections officielles (DRIAS, réchauffement de référence de +2,7 °C en France) seront ajoutées ici.</p>
     </div></details>
-    <p class="note" style="margin-top:18px">Source : Météo-France, station ${c.station}, relevés quotidiens 1995-2024. Gel mesuré sous abri ; au ras du sol, les gelées blanches peuvent survenir un peu plus tard.</p>
+    <p class="note" style="margin-top:18px">Source : Météo-France, station ${c.station}, relevés quotidiens ${C.y0}-${C.y1}. Gel mesuré sous abri ; au ras du sol, les gelées blanches peuvent survenir un peu plus tard.</p>
   </div></section>`;
 }
 
@@ -584,7 +611,7 @@ function cal(p){
     return `<span class="lbl">${lbl}</span>`+MOISC.map((m,i)=>{const on=set.has(i+1);if(!on)return `<span class="c"></span>`;const s=!set.has(i)||i===0, e=!set.has(i+2)||i===11;return `<span class="c ${cls} ${s?"s":""} ${e?"e":""}" title="${MOIS[i]}"></span>`;}).join("");};
   return `<div class="cal"><span></span>${MOISC.map((m,i)=>`<span class="m ${i+1===MOIS_COURANT?"now":""}">${m}</span>`).join("")}
    ${row("Semis",p.semis,"on-se")}${row("Plantation",p.plant,"on-pl")}${row("Floraison",p.flor,"on-fl")}${row("Récolte",p.recolte,"on-re")}</div>
-   ${p.tendre?`<p class="note" style="margin-top:12px">À ${COMMUNES[0].nom}, mise en pleine terre à partir de ${debutQuinzaine(NUITS10)}, quand les nuits dépassent 10 °C.</p>`:""}`;
+   ${p.tendre&&COM&&NUITS10?`<p class="note" style="margin-top:12px">À ${COM.nom}, mise en pleine terre à partir de ${debutQuinzaine(NUITS10)}, quand les nuits dépassent 10 °C.</p>`:""}`;
 }
 /* Lexique : mots techniques expliqués au survol ou au toucher */
 const LEX=[
@@ -632,19 +659,19 @@ function estPhrase(v){
 }
 const ARBRE_GREFFE=p=>p.cat==="fruitier"&&["Pommier","Poirier","Cerisier","Abricotier","Pêcher","Prunier","Amandier","Plaqueminier (kaki)","Cognassier","Nectarinier","Néflier","Mirabellier","Brugnonier"].some(n=>p.nom.startsWith(n.split(" (")[0]));
 function pagePlante(p,modal){
-  const v=verdict(p), c=COMMUNES[0], pol=p.pollin||{type:"sans",avec:[]};
+  const v=verdict(p), c=COM, pol=p.pollin||{type:"sans",avec:[]};
   const parts=pol.avec.map(id=>byId(id)||id);
   const pchip=q=>typeof q==="string"?`<span class="partner"><span class="av fruitier">${ICO.fruitier}</span>${q}</span>`:`<a class="partner" href="#plante-${q.id}">${av(q)}${nomComplet(q)}</a>`;
-  const ou=(ANS.expo||ANS.sol)?"dans votre jardin":`à ${c.nom}`; const headline={ok:`Bon choix ${ou}`,warn:`Possible ${ou}, avec une précaution`,bad:`À éviter ${ou}`}[v.lvl];
+  const ou=(ANS.expo||ANS.sol)?"dans votre jardin":c?`à ${c.nom}`:""; const headline={ok:`Bon choix ${ou}`,warn:`Possible ${ou}, avec une précaution`,bad:`À éviter ${ou}`}[v.lvl];
   const first=v.R.find(r=>r[0]===v.lvl&&v.lvl!=="ok");
   const keys=[["Ensoleillement",p.expo.map(e=>e==="soleil"?"Soleil":e==="mi-ombre"?"Mi-ombre":"Ombre").join(", ")],["Planter",quandPlanter(p)||(p.semis&&p.semis.length?"Semer "+moisRange(p.semis):"—")],["Récolte",p.recolte&&p.recolte.length?moisRange(p.recolte):"—"],["Taille adulte",p.taille.split(/, (?=\d)|;/)[0]]];
   const spec=[["Port",p.port],["Taille adulte",p.taille],p.florGroupe&&p.florGroupe!=="—"?["Floraison",p.florGroupe]:null,["Froid supporté",p.tendre?"Gèle à 0 °C":nf(p.rust??p.rustL)+" °C"],["Sécheresse",["","Résiste peu","Résiste moyennement","Résiste bien"][p.sech]],["Chaleur",["","La craint","Moyenne","La supporte bien"][p.chal]],["Sol argileux",["Craint l'humidité","Avec un bon drainage","Bien"][p.argile]],p.froid?["Besoin de froid l'hiver",p.froid[0].toUpperCase()+p.froid.slice(1)]:null,p.gout&&p.gout!=="—"?["Goût",p.gout]:null,p.usage?["Usage",p.usage]:null,p.cons&&p.cons!=="—"?["Conservation",p.cons]:null,p.eau?["Arrosage",p.eau]:null,p.sensible&&p.sensible!=="—"?["Points faibles",p.sensible]:null].filter(Boolean);
-  return `${modal?"":`<div class="wrap"><p class="crumb"><a href="#accueil">Accueil</a> › <a href="#commune-${c.slug}">${c.nom}</a> › ${p.nom}</p></div>`}
+  return `${modal?"":`<div class="wrap"><p class="crumb"><a href="#accueil">Accueil</a> › ${c?`<a href="#commune-${c.slug}">${c.nom}</a> › `:""}${p.nom}</p></div>`}
   <section class="blk tight"><div class="wrap" style="max-width:960px">
     ${PH(p.id)?`<figure class="pphoto fade"><img src="${PH(p.id).src}" alt="${p.nom}"><figcaption>${credit(PH(p.id))}</figcaption></figure>`:""}<div class="phero fade">${PH(p.id)?"":av(p)}<div><p class="kicker" style="margin:0 0 6px">${CATL[p.cat]} · ${shortPort(p)}</p><h1>${p.nom} <span style="color:var(--muted);font-weight:600">‘${p.variete}’</span></h1></div></div>
-    <div class="verdict ${v.lvl}"><span class="vicon ${v.lvl}">${v.lvl==="ok"?"✓":v.lvl==="warn"?"!":"×"}</span><div><div class="big">${headline}</div>${first?`<p style="margin-top:6px">${first[1]}</p>`:`<p style="margin-top:6px">Le climat et le sol de la commune lui conviennent.</p>`}${v.est?`<p class="estnote">${estPhrase(v)}</p>`:""}</div></div>
+    ${!c?`<div class="verdict choisir"><div><div class="big">Va-t-il réussir chez vous ?</div><p style="margin-top:6px">Indiquez votre commune : nous comparons ses besoins aux gelées, aux étés et au sol de chez vous.</p>${searchBox("qp")}</div></div>`:`<div class="verdict ${v.lvl}"><span class="vicon ${v.lvl}">${v.lvl==="ok"?"✓":v.lvl==="warn"?"!":"×"}</span><div><div class="big">${headline}</div>${first?`<p style="margin-top:6px">${first[1]}</p>`:`<p style="margin-top:6px">Le climat et le sol de la commune lui conviennent.</p>`}${v.est?`<p class="estnote">${estPhrase(v)}</p>`:""}</div></div>`}
     <div class="keys">${keys.map(([k,x])=>`<div class="key"><div class="k">${k}</div><div class="v">${x}</div></div>`).join("")}</div>
-    ${especeDe(p)?`<a class="month-cta" href="#quand-planter-${especeDe(p)}-${c.slug}">Quand planter ${ESPECES[especeDe(p)].lbl} à ${c.nom} <i>→</i></a>`:""}${ARBRE_GREFFE(p)?`<a class="month-cta" href="#actu-scion-gobelet-demi-tige-haute-tige-premiere-recolte">Scion, gobelet ou demi-tige : quel arbre acheter, et quand récolter ? <i>→</i></a>`:""}
+    ${especeDe(p)&&extra(c)?`<a class="month-cta" href="#quand-planter-${especeDe(p)}-${c.slug}">Quand planter ${ESPECES[especeDe(p)].lbl} à ${c.nom} <i>→</i></a>`:""}${ARBRE_GREFFE(p)?`<a class="month-cta" href="#actu-scion-gobelet-demi-tige-haute-tige-premiere-recolte">Scion, gobelet ou demi-tige : quel arbre acheter, et quand récolter ? <i>→</i></a>`:""}
   </div></section>
   ${(pol.type==="autosterile"||pol.type==="partiel"||pol.type==="male")?`<section class="blk tight" style="padding-bottom:0"><div class="wrap" style="max-width:960px"><div class="poll">
     <span class="av fruitier" style="width:60px;height:60px;border-radius:18px">${ICO.fruitier}</span>
@@ -657,7 +684,7 @@ function pagePlante(p,modal){
   </div></div></section>`:""}
   <section class="blk tight"><div class="wrap" style="max-width:960px">
     <h2>Calendrier</h2>${cal(p)}
-    ${(()=>{const li=r=>`<li><span class="dot ${r[0]}"></span><span>${gl(r[1])}${r[3]?` <span class="estim" tabindex="0" role="button" data-def="Cette caractéristique de la plante est notre estimation : nous ne l'avons pas encore vérifiée. Les chiffres de climat, eux, viennent de Météo-France.">estimation</span>`:""}</span></li>`;
+    ${!c?"":(()=>{const li=r=>`<li><span class="dot ${r[0]}"></span><span>${gl(r[1])}${r[3]?` <span class="estim" tabindex="0" role="button" data-def="Cette caractéristique de la plante est notre estimation : nous ne l'avons pas encore vérifiée. Les chiffres de climat, eux, viennent de Météo-France.">estimation</span>`:""}</span></li>`;
       const todo=v.R.filter(r=>r[0]!=="ok"&&!/voir plus bas|sert seulement à polliniser/.test(r[1])), good=v.R.filter(r=>r[0]==="ok");
       return `<h2 style="margin-top:48px">${todo.length?`À savoir avant de planter à ${c.nom}`:`Rien de particulier à ${c.nom}`}</h2>
       ${todo.length?`<ul class="reasons">${todo.map(li).join("")}</ul>`:""}
@@ -682,7 +709,7 @@ function pageFruitiers(){
     return `<div class="frow">
       <a class="fname" href="#plante-${p.id}"><span class="fv">‘${p.variete}’${p.rare?` <span class="flag pf-rare" style="vertical-align:middle">★ ${p.rare}</span>`:""}</span><span class="fsub">${p.flor.length?"Fleurit "+moisRange(p.flor):"Floraison discrète"}${p.recolte.length?" · Récolte "+moisRange(p.recolte):""}</span></a>
       <div class="fpoll">${pollFlag(p)}${partners?`<div class="fwith"><span>Avec :</span>${partners}</div>`:""}</div>
-      <span class="tag t-${v.lvl} fverd">${vlab[v.lvl]} à Toulouse</span></div>`;};
+      ${COM?`<span class="tag t-${v.lvl} fverd">${vlab[v.lvl]} à ${COM.nom}</span>`:""}</div>`;};
   const chip=(k,t,c,cls)=>`<button class="fchip ${cls||""}" aria-pressed="${PF.cat===k}" onclick="setPF('${k}')">${t}<span>${c}</span></button>`;
   return `<section class="blk tight"><div class="wrap fade" style="max-width:1000px">
     <p class="kicker">Pollinisation</p><h1>Faut-il un pollinisateur à mon arbre fruitier ?</h1>
@@ -708,9 +735,9 @@ const doyLab=n=>{const d=new Date(Date.UTC(2025,0,n));return d.getUTCDate()+" "+
 function figChaleur(){
   const W=720,H=300,pl=36,pr=14,pt=24,pb=30,n=YEARS.length,bw=(W-pl-pr)/n,mx=80,y=v=>pt+(mx-v)*(H-pt-pb)/mx;
   let g="";for(let v=0;v<=80;v+=20)g+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
-  const bars=YEARS.map((r,i)=>{const X=pl+i*bw+2,w=bw-4,h=y(0)-y(r[4]);const late=r[0]>=2010;return `<rect x="${X}" y="${y(r[4])}" width="${w}" height="${h}" rx="3" fill="${late?"var(--coral)":"color-mix(in srgb,var(--coral) 45%,transparent)"}"/><rect x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}" fill="transparent" data-tip="${r[0]} : ${r[4]} jours à 30 °C ou plus"/>${i%5===0?`<text x="${X+w/2}" y="${H-10}" text-anchor="middle">${r[0]}</text>`:""}`;}).join("");
+  const bars=YEARS.map((r,i)=>{const X=pl+i*bw+2,w=bw-4,h=y(0)-y(r[4]);const late=r[0]>=C.midY;return `<rect x="${X}" y="${y(r[4])}" width="${w}" height="${h}" rx="3" fill="${late?"var(--coral)":"color-mix(in srgb,var(--coral) 45%,transparent)"}"/><rect x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}" fill="transparent" data-tip="${r[0]} : ${r[4]} jours à 30 °C ou plus"/>${i%5===0?`<text x="${X+w/2}" y="${H-10}" text-anchor="middle">${r[0]}</text>`:""}`;}).join("");
   const avg=(a,b,v)=>`<line x1="${pl+a*bw}" x2="${pl+b*bw}" y1="${y(v)}" y2="${y(v)}" stroke="var(--ink)" stroke-width="2" stroke-dasharray="5 4"/><text x="${pl+a*bw+4}" y="${y(v)-7}" style="fill:var(--ink);font-weight:700">Moyenne ${v} jours</text>`;
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Jours à 30 °C ou plus par an à Toulouse-Blagnac, 1995-2024">${g}${bars}${avg(0,15,C.d30A)}${avg(15,30,C.d30B)}</svg>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Jours à 30 °C ou plus par an, ${C.y0}-${C.y1}">${g}${bars}${avg(0,15,C.d30A)}${avg(15,30,C.d30B)}</svg>`;
 }
 function figGelFleurs(){
   const W=720,H=320,pl=64,pr=150,pt=18,pb=30,n=YEARS.length,x=i=>pl+i*(W-pl-pr)/(n-1),d0=1,d1=110,y=d=>pt+(d-d0)*(H-pt-pb)/(d1-d0);
@@ -726,7 +753,7 @@ function figNuits(){
   let g="";for(let v=0;v<=20;v+=5)g+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">${v}°</text>`;
   const path=MONTHS.map((m,i)=>`${i?"L":"M"}${x(i)},${y(m[1])}`).join("");
   const pts=MONTHS.map((m,i)=>`<circle cx="${x(i)}" cy="${y(m[1])}" r="4.5" fill="${m[1]>=10?"var(--brand-2)":"var(--muted)"}" stroke="var(--surface)" stroke-width="2"/><circle cx="${x(i)}" cy="${y(m[1])}" r="13" fill="transparent" data-tip="${MOIS[i]} : ${nf(m[1])} °C la nuit en moyenne"/><text x="${x(i)}" y="${H-8}" text-anchor="middle">${MOISC[i]}</text>`).join("");
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Température minimale moyenne par mois à Toulouse-Blagnac">${g}
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Température minimale moyenne par mois">${g}
    <line x1="${pl}" x2="${W-pr}" y1="${y(10)}" y2="${y(10)}" stroke="var(--coral)" stroke-width="2" stroke-dasharray="6 4"/><text x="${pl+6}" y="${y(10)-8}" style="fill:var(--ink);font-weight:700">10 °C : seuil pour les tomates</text>
    <path d="${path}" fill="none" stroke="var(--brand-2)" stroke-width="2"/>${pts}</svg>`;
 }
@@ -852,7 +879,7 @@ function pageActus(){
     <div class="actus">
       <a class="actu" href="#fruitiers"><div class="athumb gfeat"><span class="av fruitier" style="width:72px;height:72px;border-radius:22px">${ICO.fruitier}</span><span class="gchips"><span class="flag pf-ok">Autofertile</span><span class="flag pf-mid">Partiellement autofertile</span><span class="flag pf-no">Autostérile</span></span></div><div class="abody"><span class="tag t-ok">Guide</span><h3>Arbres fruitiers : faut-il un pollinisateur ?</h3><p class="note">Variété par variété, s'il faut planter un deuxième arbre, et lequel.</p></div></a>
       ${ACTUS.map(a=>`<a class="actu" href="#actu-${a.slug}"><div class="athumb">${a.fig()}</div><div class="abody"><span class="tag t-ok">${a.type}</span> <span class="note">${a.date}</span><h3>${a.title}</h3><p class="note">${a.lead}</p></div></a>`).join("")}</div>
-    <p class="note" style="margin-top:20px">Maquette : guides chiffrés calculés pour Toulouse ; sur le site, ils seront recalculés pour chaque commune à chaque mise à jour des données. À venir : bien planter un arbre fruitier (trou, greffe hors sol, arrosage), que planter en sol argileux, plantes envahissantes à éviter.</p>
+    <p class="note" style="margin-top:20px">Les guides chiffrés portent pour l'instant sur Toulouse ; ils seront déclinés pour d'autres villes. À venir : bien planter un arbre fruitier (trou, greffe hors sol, arrosage), que planter en sol argileux, plantes envahissantes à éviter.</p>
   </div></section>`;
 }
 function pageActu(a){
@@ -863,7 +890,7 @@ function pageActu(a){
     <p class="lead" style="max-width:none">${a.lead}</p>
     <figure class="figbox">${a.fig()}<figcaption class="note">${a.src?a.src:`Source : Météo-France. ${a.method}`}</figcaption></figure>
     <div class="prose">${a.body}</div>
-    <p style="margin-top:28px"><a class="btn" href="${a.slug.startsWith("scion")?"#fruitiers":"#commune-toulouse-31555"}">${a.slug.startsWith("scion")?"Voir les arbres fruitiers":a.slug==="connaitre-sa-terre"?"Indiquer ma terre à Toulouse":"Que planter à Toulouse ?"}</a></p>
+    <p style="margin-top:28px"><a class="btn" href="${a.slug.startsWith("scion")?"#fruitiers":a.slug==="connaitre-sa-terre"?(villeMemo()?"#commune-"+villeMemo().slug:"#accueil"):"#commune-toulouse-31555"}">${a.slug.startsWith("scion")?"Voir les arbres fruitiers":a.slug==="connaitre-sa-terre"?"Indiquer ma terre":"Que planter à Toulouse ?"}</a></p>
     <h2 style="margin-top:56px;font-size:24px">À lire aussi</h2>
     <div class="actus two">${others.map(o=>`<a class="actu" href="#actu-${o.slug}"><div class="abody"><span class="tag t-ok">${o.type}</span><h3>${o.title}</h3></div></a>`).join("")}</div>
   </div></article>`;
@@ -924,16 +951,16 @@ function pageMois(c,n){
     <nav class="mchips" aria-label="Choisir un mois">${MOIS.map((m,i)=>`<a href="#que-planter-en-${moisSlug(i+1)}-${c.slug}" class="${i+1===n?"on":""}${i+1===MOIS_COURANT?" now":""}">${["janv.","févr.","mars","avril","mai","juin","juil.","août","sept.","oct.","nov.","déc."][i]}</a>`).join("")}</nav>
   </div></section>
   ${fr&&SAISON_FRUITIERS.includes(n)?`<section class="blk tight" style="padding-top:8px;padding-bottom:0"><div class="wrap"><div class="seasonbox">
-    <span class="av fruitier" style="width:54px;height:54px;border-radius:16px">${ICO.fruitier}</span>
+    ${SSR?"":`<span class="av fruitier" style="width:54px;height:54px;border-radius:16px">${ICO.fruitier}</span>`}
     <div><h2>C'est la saison des arbres fruitiers</h2><p>De novembre à mars, plantez les fruitiers en racines nues, hors jours de gel et de sol détrempé. « À la Sainte-Catherine, tout bois prend racine » : un arbre planté maintenant s'enracine tout l'hiver et démarre mieux au printemps.</p>
     <p style="margin-top:10px"><a href="#fruitiers">Vérifier les pollinisateurs avant d'acheter</a></p></div></div></div></section>`:""}
   <section class="blk tight"><div class="wrap">
-    ${grp.map(([cat,arr])=>`<div class="group"><div class="group-h"><h2>${CATL[cat]}</h2><span class="pill tag t-ok">${arr.length}</span></div><div class="plist">${arr.map(p=>carte(p,verdict(p))).join("")}</div></div>`).join("")||`<div class="empty">Rien à planter ce mois-ci dans le catalogue de la maquette.</div>`}
+    ${grp.map(([cat,arr])=>`<div class="group"><div class="group-h"><h2>${CATL[cat]}</h2><span class="pill tag t-ok">${arr.length}</span></div>${SSR?`<ul class="plite">${arr.map(p=>ligneLite({p})).join("")}</ul>`:`<div class="plist">${arr.map(p=>carte(p,verdict(p))).join("")}</div>`}</div>`).join("")||`<div class="empty">Rien à planter ce mois-ci dans le catalogue de la maquette.</div>`}
   </div></section>
   ${Ls.length?`<section class="blk soft"><div class="wrap">
     <p class="kicker">Pour prendre de l'avance</p><h2>À préparer pour ${MOIS[suiv-1]}</h2>
     <p class="note" style="margin-top:6px">Commandez les plants ou les graines, préparez la terre.</p>
-    <div class="month" style="margin-top:22px">${Ls.map(p=>`<a href="#plante-${p.id}">${thumb(p)}<span><strong>${p.nom}</strong><small>‘${p.variete}’</small></span></a>`).join("")}</div>
+    <div class="month" style="margin-top:22px">${Ls.map(p=>`<a href="#plante-${p.id}">${SSR?"":thumb(p)}<span><strong>${p.nom}</strong><small>‘${p.variete}’</small></span></a>`).join("")}</div>
     <a class="month-cta" href="#que-planter-en-${moisSlug(suiv)}-${c.slug}">Que planter en ${MOIS[suiv-1]} <i>→</i></a>
   </div></section>`:""}
   <section class="blk"><div class="wrap"><a class="month-cta" href="#commune-${c.slug}">Toutes les plantes qui réussissent à ${c.nom} <i>→</i></a></div></section>`;
@@ -944,7 +971,7 @@ function pageQuand(c,k){
   const E=ESPECES[k], L=P.filter(E.match); if(!L.length)return pageAccueil();
   const p=L[0], tendre=p.tendre;
   const date=quandPlanter(p);
-  const saints=133, ecart=tendre?Math.round((saints-NUITS10)/7):0;
+  const saints=133, ecart=tendre&&NUITS10?Math.round((saints-NUITS10)/7):0;
   const lastD=fmtDoy(C.lastMed), last9=fmtDoy(C.lastD9);
   const tiles=[p.semis&&p.semis.length?["Semis à l'abri",moisRange(p.semis)]:null,["Plantation en pleine terre",tendre?debutQuinzaine(NUITS10):moisRange(p.plant||[])],p.recolte&&p.recolte.length?["Récolte",moisRange(p.recolte)]:null].filter(Boolean);
   const A=(E.assoc||[]).map(byId).filter(Boolean), X=(E.eviter||[]).map(byId).filter(Boolean);
@@ -960,11 +987,11 @@ function pageQuand(c,k){
   <section class="blk tight"><div class="wrap" style="max-width:960px">
     <h2>Pourquoi cette date à ${c.nom}</h2>
     <ul class="reasons">${tendre?`
-      <li><span class="dot info"></span><span>La dernière gelée tombe en moyenne vers le <b>${lastD}</b>, et 9 années sur 10 avant le <b>${last9}</b> (Météo-France, Toulouse-Blagnac, 1995-2024).</span></li>
+      <li><span class="dot info"></span><span>${C.gelRare?`Les gelées de printemps sont rares : aucune ${C.sansGel} années sur ${C.n}`:`La dernière gelée tombe en moyenne vers le <b>${lastD}</b>, et 9 années sur 10 avant le <b>${last9}</b>`} (Météo-France, station ${c.station}, ${C.y0}-${C.y1}).</span></li>
       <li><span class="dot info"></span><span>${p.nom==="Tomate"?"La tomate":"Cette plante"} ne pousse vraiment qu'avec des nuits au-dessus de 10 °C : à ${c.nom}, c'est ${debutQuinzaine(NUITS10)}. Planter plus tôt ne fait pas gagner de temps.</span></li>
       <li><span class="dot warn"></span><span>Si une nuit froide est annoncée après la plantation, couvrez d'un voile d'hivernage.</span></li>`:`
       <li><span class="dot info"></span><span>L'arbre doit être en repos (sans feuilles) : de novembre à mars à ${c.nom}.</span></li>
-      <li><span class="dot info"></span><span>Le sol est souvent argileux à ${c.nom} : évitez de planter juste après de fortes pluies, quand la terre colle.</span></li>`}
+      ${argNiveau(c)==="souvent argileux"?`<li><span class="dot info"></span><span>Le sol est souvent argileux à ${c.nom} : évitez de planter juste après de fortes pluies, quand la terre colle.</span></li>`:""}`}
     </ul>
     <h2 style="margin-top:48px">Quelle variété à ${c.nom}</h2>
     <div class="plist" style="margin-top:18px">${L.map(q=>carte(q,verdict(q))).join("")}</div>
@@ -979,10 +1006,10 @@ function pageQuand(c,k){
 
 function pageFor(h){return fixLinks(pageFor0(h));}
 function pageFor0(h){let m;
-  if((m=h.match(/^commune-(.+)$/))){const c=COMMUNES.find(c=>c.slug===m[1]);return c?pageCommune(c):pageAccueil();}
+  if((m=h.match(/^commune-(.+)$/))){return COM&&COM.slug===m[1]?pageCommune(COM):pageAccueil();}
   if((m=h.match(/^plante-(.+)$/))){const p=byId(m[1]);return p?pagePlante(p):pageAccueil();}
-  if((m=h.match(/^que-planter-en-([a-z]+)-(.+)$/))){const n=MOIS.findIndex(x=>norm(x)===m[1])+1,c=COMMUNES.find(c=>c.slug===m[2]);if(n&&c)return pageMois(c,n);}
-  if((m=quandSplit(h))){const c=COMMUNES.find(c=>c.slug===m[2]);if(c&&ESPECES[m[1]])return pageQuand(c,m[1]);}
+  if((m=h.match(/^que-planter-en-([a-z]+)-(.+)$/))){const n=MOIS.findIndex(x=>norm(x)===m[1])+1,c=COM&&COM.slug===m[2]?COM:null;if(n&&c)return pageMois(c,n);}
+  if((m=quandSplit(h))){const c=COM&&COM.slug===m[2]?COM:null;if(c&&ESPECES[m[1]])return pageQuand(c,m[1]);}
   if(h==="fruitiers")return pageFruitiers();
   if(h==="guides"||h==="actualites")return pageActus();
   if((m=h.match(/^actu-(.+)$/))){const a=ACTUS.find(x=>x.slug===m[1]);return a?pageActu(a):pageActus();}
@@ -992,22 +1019,23 @@ function pageFor0(h){let m;
 
 /* Mémoire de la dernière ville (sur l'appareil seulement) */
 const VK="jardinarena-ville";
-function villeMemo(){try{const s=localStorage.getItem(VK);return s?COMMUNES.find(c=>c.slug===s)||null:null}catch(e){return null}}
-function retenirVille(slug){try{if(COMMUNES.some(c=>c.slug===slug))localStorage.setItem(VK,slug)}catch(e){}}
+// on garde de quoi retrouver la commune et son climat : {slug, nom, cp, pop, key}
+function villeMemo(){try{const s=JSON.parse(localStorage.getItem(VK)||"null");return s&&s.slug&&s.key?s:null}catch(e){return null}}
+function retenirVille(c){try{if(c&&c.slug&&c.key)localStorage.setItem(VK,JSON.stringify({slug:c.slug,nom:c.nom,cp:c.cp,pop:c.pop,key:c.key,data:c.data||null}))}catch(e){}}
 
 /* ===================== MÉTADONNÉES DES PAGES ===================== */
 function metaFor(h){ let m; const T=" | Jardin Arena";
   if(h==="accueil") return {title:"Que planter dans mon jardin ? Conseils pour votre commune"+T,desc:"Les arbres fruitiers, légumes et plantes qui réussiront dans votre jardin, d'après le climat relevé par Météo-France et les cartes officielles des sols."};
-  if((m=h.match(/^commune-(.+)$/))){const c=COMMUNES.find(x=>x.slug===m[1]);return {title:`Que planter à ${c.nom} ? Fruitiers, légumes, fleurs`+T,desc:`Ce qui réussit dans un jardin à ${c.nom} (${c.cp}) : gelées, chaleur et sol de la commune, plante par plante.`};}
-  if((m=h.match(/^que-planter-en-([a-z]+)-(.+)$/))){const c=COMMUNES.find(x=>x.slug===m[2]);const n=MOIS.findIndex(x=>norm(x)===m[1]);return {title:`Que planter en ${MOIS[n]} à ${c.nom} ?`+T,desc:`Les plantations et semis de ${MOIS[n]} à ${c.nom}, adaptés au climat de la commune.`};}
-  if((m=quandSplit(h))){const c=COMMUNES.find(x=>x.slug===m[2]);const e=ESPECES[m[1]];return {title:`Quand planter ${e.lbl} à ${c.nom} ?`+T,desc:`La bonne période pour planter ${e.lbl} à ${c.nom}, d'après les gelées et les températures relevées par Météo-France.`};}
+  if((m=h.match(/^commune-(.+)$/))){const c=COM;return {title:`Que planter à ${c.nom} ? Fruitiers, légumes, fleurs`+T,desc:`Ce qui réussit dans un jardin à ${c.nom} (${c.cp}) : gelées, chaleur et sol de la commune, plante par plante.`};}
+  if((m=h.match(/^que-planter-en-([a-z]+)-(.+)$/))){const c=COM;const n=MOIS.findIndex(x=>norm(x)===m[1]);return {title:`Que planter en ${MOIS[n]} à ${c.nom} ?`+T,desc:`Les plantations et semis de ${MOIS[n]} à ${c.nom}, adaptés au climat de la commune.`};}
+  if((m=quandSplit(h))){const c=COM;const e=ESPECES[m[1]];return {title:`Quand planter ${e.lbl} à ${c.nom} ?`+T,desc:`La bonne période pour planter ${e.lbl} à ${c.nom}, d'après les gelées et les températures relevées par Météo-France.`};}
   if((m=h.match(/^plante-(.+)$/))){const p=byId(m[1]);return {title:`${p.nom} ‘${p.variete}’ : où et quand le planter`+T,desc:`${p.nom} ‘${p.variete}’ : ensoleillement, plantation, récolte, pollinisation, froid supporté, et s'il réussira dans votre commune.`};}
   if(h==="fruitiers") return {title:"Faut-il un pollinisateur à mon arbre fruitier ?"+T,desc:"Autofertile ou pas : variété par variété, faut-il planter un deuxième arbre, et lequel."};
   if(h==="guides") return {title:"Guides pour réussir vos plantations"+T,desc:"Guides pratiques et chiffrés : gel des fleurs, chaleur, formes d'arbres, connaître sa terre."};
   if((m=h.match(/^actu-(.+)$/))){const a=ACTUS.find(x=>x.slug===m[1]);return {title:a.title.replace(/<[^>]+>/g,"")+T,desc:a.lead.replace(/<[^>]+>/g,"").slice(0,155)};}
   if(h==="a-propos") return {title:"À propos de Jardin Arena"+T,desc:"D'où viennent les données et comment nous décidons qu'une plante est un bon choix."};
   return {title:"Jardin Arena",desc:""}; }
-function allPageIds(){ const ids=["accueil","fruitiers","guides","a-propos"];
-  for(const c of COMMUNES){ ids.push("commune-"+c.slug); MOIS.forEach(x=>ids.push(`que-planter-en-${norm(x)}-${c.slug}`)); Object.keys(ESPECES).forEach(k=>ids.push(`quand-planter-${k}-${c.slug}`)); }
-  P.forEach(p=>ids.push("plante-"+p.id)); ACTUS.forEach(a=>ids.push("actu-"+a.slug)); return ids; }
-export { quandSplit, villeMemo, retenirVille, ESPECES, pageFor, metaFor, allPageIds, url, idFromPath, fixLinks, byId, pagePlante, P, COMMUNES, CATL, shortPort, MOIS, MOIS_COURANT, moisSlug, norm, W, $ };
+// Pages sans commune (la liste des communes vient des données, côté construction)
+function pagesGenerales(){ return ["accueil","fruitiers","guides","a-propos",...P.map(p=>"plante-"+p.id),...ACTUS.map(a=>"actu-"+a.slug)]; }
+function pagesCommune(c){ const ids=["commune-"+c.slug]; if(extra(c)){ MOIS.forEach(x=>ids.push(`que-planter-en-${norm(x)}-${c.slug}`)); Object.keys(ESPECES).forEach(k=>ids.push(`quand-planter-${k}-${c.slug}`)); } return ids; }
+export { setCommune, setToulouseRef, vueCommune, extra, pagesGenerales, pagesCommune, quandSplit, villeMemo, retenirVille, ESPECES, pageFor, metaFor, url, idFromPath, fixLinks, byId, pagePlante, P, CATL, shortPort, MOIS, MOIS_COURANT, moisSlug, norm, W, $, TOULOUSE_REF, REF_Y, REF_M, REF_G };

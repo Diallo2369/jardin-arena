@@ -397,3 +397,7 @@ dialog#fiche[open]::backdrop{animation:bdIn .3s ease both}
 .empty{padding:24px;border-radius:var(--r);background:var(--surface);color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){.fade{animation:f .45s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
 .skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--brand);color:#fff;padding:8px 14px;border-radius:10px}.skip:focus{left:12px}
+/* Liste allégée (construction) : remplacée par les cartes dès que le navigateur a fini */
+.plite{margin:10px 0 24px;padding-left:18px;columns:2 320px;column-gap:28px}.plite li{margin:4px 0;break-inside:avoid;font-size:15px}
+.verdict.choisir{display:block;background:var(--soft)}.verdict.choisir .search{margin-top:14px;max-width:520px}
+.sugg .sg{display:block;padding:10px 14px;color:var(--ink);text-decoration:none}.sugg .sg:hover,.sugg .sg:focus{background:var(--soft)}

@@ -19,8 +19,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     env:
+      NODE_OPTIONS: --max-old-space-size=8192
       # Aperçu sans domaine : https://diallo2369.github.io/jardin-arena/
       # Avec le domaine : variable SITE_URL=https://<domaine> (le sous-dossier disparaît alors)
       SITE_URL: ${{ vars.SITE_URL || 'https://diallo2369.github.io' }}
@@ -34,6 +35,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Données de la publication précédente : servent de cache et de secours si un service public est indisponible
+      - name: Cache des données publiques
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+      - name: Télécharger les relevés Météo-France, les communes et les altitudes
+        run: node scripts/climat/fetch.mjs
+      - name: Calculer le climat des communes
+        run: node scripts/climat/prepare.mjs
       - name: Construire le site
         run: npm run build
       - uses: actions/upload-pages-artifact@v3

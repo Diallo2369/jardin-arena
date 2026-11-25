@@ -1,5 +1,5 @@
 // Jardin Arena : interactions dans le navigateur (filtres, Mon jardin, fiche en surimpression)
-import { quandSplit, pageFor, pagePlante, byId, url, idFromPath, fixLinks, CATL, shortPort, villeMemo, retenirVille, moisSlug, MOIS_COURANT, W, $ } from "../lib/jardin.js";
+import { setToulouseRef, setCommune, vueCommune, extra, quandSplit, pageFor, pagePlante, byId, url, idFromPath, fixLinks, CATL, shortPort, villeMemo, retenirVille, moisSlug, MOIS_COURANT, W, $ } from "../lib/jardin.js";
 
 const app = $("#app");
 const PAGE = app.dataset.page;
@@ -9,12 +9,15 @@ const PL = url("plante-x").replace(/x\/$/, "");             // préfixe des fich
 let lastRect = null, closing = false, savedY = 0, ficheId = null;
 const base = /^commune-|^fruitiers$/.test(PAGE);            // pages où la fiche s'ouvre en surimpression
 
-// Ville mémorisée : retenue quand on consulte une page de commune
-{ const s = (PAGE.match(/^commune-(.+)$/) || PAGE.match(/^que-planter-en-[a-z]+-(.+)$/) || (quandSplit(PAGE)||[]).slice(1) || [])[1]; if (s) retenirVille(s); }
+// Commune de la page (données intégrées à la construction) : elle devient la ville mémorisée
+const raw = $("#com-data");
+const DATA = raw ? JSON.parse(raw.textContent) : null;
+if (PAGE.startsWith("actu-")) setToulouseRef();
+if (DATA) { const v = vueCommune(DATA.c); retenirVille({ ...v, data: DATA.c }); }
 
 function majLiens() {
   const v = villeMemo();
-  document.querySelectorAll("[data-moislien]").forEach(a => a.href = url(`que-planter-en-${moisSlug(MOIS_COURANT)}-${v ? v.slug : "toulouse-31555"}`));
+  document.querySelectorAll("[data-moislien]").forEach(a => a.href = v ? (extra(v) ? url(`que-planter-en-${moisSlug(MOIS_COURANT)}-${v.slug}`) : url("commune-" + v.slug) + "#sec-mois") : url("accueil") + "#chercher");
   document.querySelectorAll("a[data-monjardin]").forEach(x => {
     if (v) { x.href = url("commune-" + v.slug); x.onclick = null; }
     else { x.href = url("accueil"); x.onclick = e => { if (typeof W.focusVille === "function") { e.preventDefault(); W.focusVille(); } }; }
@@ -37,9 +40,16 @@ function render() {
   if (dlg.open && ficheId) dlgBody.innerHTML = fixLinks(pagePlante(byId(ficheId), true));
 }
 W.render = render;
-// Le rendu de la construction ne connaît ni la ville ni le jardin mémorisés : on rafraîchit si besoin
-{ let jardin = {}; try { jardin = JSON.parse(localStorage.getItem("jardinarena-jardin") || "{}"); } catch (e) { }
-  if (jardin.expo || jardin.sol || (PAGE === "accueil" && villeMemo())) render(); else majLiens(); }
+// La construction produit une page allégée, sans la ville ni le jardin mémorisés : le navigateur complète l'affichage
+(async () => {
+  // climat de la commune : un fichier partagé par toutes les communes rattachées à la même station
+  const v = DATA ? { data: DATA.c, key: DATA.c.key } : villeMemo();
+  if (v && v.data && (DATA || /^(accueil|fruitiers|plante-)/.test(PAGE))) {
+    try { const clim = await (await fetch(`${url("accueil")}data/climats/${v.key.replace(/\|/g, "_")}.json`)).json(); setCommune(v.data, clim); } catch (e) { if (DATA) return; }
+  }
+  render();
+  document.documentElement.classList.add("pret");
+})();
 
 // Fiche en surimpression
 document.addEventListener("click", e => {

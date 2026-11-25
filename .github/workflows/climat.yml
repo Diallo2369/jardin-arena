@@ -1,4 +1,4 @@
-name: Climat des communes (essai)
+name: Essai complet (sans publication)
 
 on:
   push:
@@ -9,9 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  climat:
+  essai:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     env:
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - run: npm ci
       - name: Cache des données publiques
         uses: actions/cache@v4
         with:
@@ -29,7 +31,11 @@ jobs:
         run: node scripts/climat/fetch.mjs
       - name: Calculer le climat des communes
         run: node scripts/climat/prepare.mjs
-      - uses: actions/upload-artifact@v4
-        with:
-          name: climat
-          path: data/build/climat
+      - name: Construire le site
+        run: npm run build
+      - name: Taille du site
+        run: |
+          echo "Pages : $(find dist -name index.html | wc -l)"
+          echo "Fichiers : $(find dist -type f | wc -l)"
+          du -sh dist dist/que-planter dist/quand-planter dist/data
+          for p in que-planter/toulouse-31555 que-planter/nice-06088 que-planter/chamonix-mont-blanc-74056 que-planter/toulouse-31555/novembre quand-planter/tomate/toulouse-31555; do echo "$(wc -c < dist/$p/index.html) $p"; done

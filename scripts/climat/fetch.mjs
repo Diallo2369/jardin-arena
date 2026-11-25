@@ -56,3 +56,14 @@ for (let i = 0; i < todo.length; i += 200) {
 fs.writeFileSync(altFile, JSON.stringify(alts));
 fs.writeFileSync(path.join(RAW, "communes.json"), JSON.stringify(metro.map(c => ({ code: c.code, nom: c.nom, dep: c.codeDepartement, cp: (c.codesPostaux || []).sort()[0] || "", pop: c.population || 0, lon: c.pos[0], lat: c.pos[1], mairie: !!c.mairie, alt: alts[c.code] ?? null }))));
 console.log(`Communes : ${metro.length} · altitude connue : ${metro.filter(c => alts[c.code] != null).length}`);
+// 4. Départements (noms) et part de chaque commune en sol argileux (données d'Argile Arena, carte officielle 2026)
+const deps = await (await get("https://geo.api.gouv.fr/departements?fields=nom,code")).json();
+fs.writeFileSync(path.join(RAW, "departements.json"), JSON.stringify(deps));
+const argile = {};
+for (const d of deps.filter(d => !d.code.startsWith("97"))) {
+  try { const j = await (await get(`https://argilearena.fr/data/dep/${d.code}.json`, 3)).json(); for (const [code, v] of Object.entries(j)) argile[code] = v.r; }
+  catch (e) { console.log(`  argile ${d.code} : indisponible (${e.message})`); }
+}
+fs.writeFileSync(path.join(RAW, "argile.json"), JSON.stringify(argile));
+console.log(`Argile : ${Object.keys(argile).length} communes`);
+

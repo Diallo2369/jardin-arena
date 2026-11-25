@@ -1,11 +1,21 @@
 ---
 import Base from "../layouts/Base.astro";
-import { pageFor, metaFor, allPageIds, url } from "../lib/jardin.js";
+import { pageFor, metaFor, url, setCommune, setToulouseRef, vueCommune, pagesGenerales, pagesCommune } from "../lib/jardin.js";
+import { donnees } from "../lib/donnees.js";
 export function getStaticPaths() {
   const B = import.meta.env.BASE_URL.replace(/\/$/, "");
-  return allPageIds().filter(id => id !== "accueil").map(id => ({ params: { path: url(id).replace(B, "").replace(/^\/|\/$/g, "") }, props: { id } }));
+  const path = id => url(id).replace(B, "").replace(/^\/|\/$/g, "");
+  const out = pagesGenerales().filter(id => id !== "accueil").map(id => ({ params: { path: path(id) }, props: { id } }));
+  for (const c of donnees().communes) for (const id of pagesCommune(vueCommune(c))) out.push({ params: { path: path(id) }, props: { id, code: c.code } });
+  return out;
 }
-const { id } = Astro.props;
+const { id, code } = Astro.props;
+const D = donnees();
+let data = null;
+if (code) { const c = D.parCode.get(code); const clim = D.climats[c.key]; setCommune(c, clim); data = { c }; }
+else if (id.startsWith("actu-")) setToulouseRef();
+else setCommune(null);
 const m = metaFor(id);
+const html = pageFor(id);
 ---
-<Base id={id} title={m.title} desc={m.desc} html={pageFor(id)} />
+<Base id={id} title={m.title} desc={m.desc} html={html} data={data} />

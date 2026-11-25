@@ -86,6 +86,13 @@ function indicateurs(s, o, sr) {
 // Rattachement des communes
 const km = (a, b) => { const R = 6371, dLa = (b.lat - a.lat) * Math.PI / 180, dLo = (b.lon - a.lon) * Math.PI / 180, x = Math.sin(dLa / 2) ** 2 + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
 const communes = JSON.parse(fs.readFileSync(path.join(RAW, "communes.json"), "utf8"));
+const rd = f => fs.existsSync(path.join(RAW, f)) ? JSON.parse(fs.readFileSync(path.join(RAW, f), "utf8")) : null;
+const DEPN = Object.fromEntries((rd("departements.json") || []).map(d => [d.code, d.nom]));
+const ARG = rd("argile.json") || {};
+// Tendance calcaire / acide renseignée à la main, commune par commune (carte des sols INRAE) : data/sols/tendances.json
+const SOLS = fs.existsSync("data/sols/tendances.json") ? JSON.parse(fs.readFileSync("data/sols/tendances.json", "utf8")) : {};
+// Même adresse que sur Argile Arena : nom-de-la-commune-code-insee
+const slugify = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/œ/g, "oe").replace(/æ/g, "ae").replace(/['’]/g, "-").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const out = [], keys = new Map();
 for (const c of communes) {
   let best = null, bs = Infinity;
@@ -94,17 +101,26 @@ for (const c of communes) {
     const d = km(c, s), sc = d + (c.alt != null ? Math.abs(c.alt - s.alt) / 10 : 0);
     if (sc < bs) { bs = sc; best = { s, d }; }
   }
+  if (!best) for (const s of TEMP) { const d = km(c, s), sc = d + (c.alt != null ? Math.abs(c.alt - s.alt) / 10 : 0); if (sc < bs) { bs = sc; best = { s, d }; } }
   if (!best) continue;
   const s = best.s, dAlt = c.alt != null ? c.alt - s.alt : 0;
   const corr = Math.max(-3, Math.min(3, Math.round(-0.0065 * dAlt * 2) / 2)) || 0;
   let sr = s; if (s.nR < 24) { let bd = Infinity; for (const r of RAIN) { const d = km(c, r); if (d < bd) { bd = d; sr = r; } } }
   const key = `${s.id}|${corr}|${sr.id}`; keys.set(key, [s, corr, sr]);
-  out.push({ ...c, st: s.id, stNom: s.nom, stAlt: s.alt, dist: Math.round(best.d), dAlt, corr, key });
+  const r = ARG[c.code];   // [aucune, faible, moyenne, forte] en % du territoire
+  out.push({ ...c, slug: slugify(c.nom) + "-" + c.code, depNom: DEPN[c.dep] || "", st: s.id, stNom: s.nom, stAlt: s.alt, dist: Math.round(best.d), dAlt, corr, key,
+    argile: r ? { moyenOuFort: Math.round(r[2] + r[3]), fort: Math.round(r[3]) } : null,
+    sols: SOLS[c.code] ? { tendance: SOLS[c.code].tendance, resume: SOLS[c.code].resume } : null });
 }
 const climats = {};
 for (const [key, [s, corr, sr]] of keys) climats[key] = indicateurs(s, corr, sr);
 fs.writeFileSync(path.join(OUT, "communes.json"), JSON.stringify(out));
 fs.writeFileSync(path.join(OUT, "climats.json"), JSON.stringify(climats));
+// Pour le navigateur : un fichier par climat (fiches et accueil de la ville mémorisée) et l'index de recherche
+const PUB = "public/data"; fs.rmSync(path.join(PUB, "climats"), { recursive: true, force: true }); fs.mkdirSync(path.join(PUB, "climats"), { recursive: true });
+const fileKey = k => k.replace(/\|/g, "_");
+for (const [k, v] of Object.entries(climats)) fs.writeFileSync(path.join(PUB, "climats", fileKey(k) + ".json"), JSON.stringify(v));
+fs.writeFileSync(path.join(PUB, "communes.json"), JSON.stringify(out.slice().sort((a, b) => b.pop - a.pop).map(c => [c.nom, c.cp, c.slug])));
 fs.writeFileSync(path.join(OUT, "stations.json"), JSON.stringify(TEMP.map(s => ({ id: s.id, nom: s.nom, lat: s.lat, lon: s.lon, alt: s.alt, dep: s.dep, nT: s.nT, nR: s.nR }))));
 const far = out.filter(c => c.dist > 30).length, big = out.filter(c => Math.abs(c.dAlt) > 300).length;
 console.log(`Communes rattachées : ${out.length} / ${communes.length} · climats distincts : ${keys.size} · station à plus de 30 km : ${far} · dénivelé de plus de 300 m : ${big}`);

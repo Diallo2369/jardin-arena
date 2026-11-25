@@ -7,7 +7,7 @@ import "@fontsource/figtree/800.css";
 import "../styles/site.css";
 import { fixLinks } from "../lib/jardin.js";
 import { SITE_URL, NOINDEX, CF_BEACON } from "../lib/site-config.js";
-const { id, title, desc, html } = Astro.props;
+const { id, title, desc, html, data } = Astro.props;
 const B = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canon = SITE_URL + B + Astro.url.pathname.replace(B, "");
 const shell = (s) => fixLinks(s);
@@ -39,10 +39,11 @@ const shell = (s) => fixLinks(s);
   <a href="#a-propos">À propos</a>`)} /></div>
 </header>
 <main id="app" data-page={id} set:html={html} />
+{data && <script type="application/json" id="com-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")} />}
 <footer><div class="wrap foot" set:html={shell(`
   <div><a class="logo" href="#accueil" aria-label="Jardin Arena, accueil"><span class="lw">Jardin</span><span class="la">ARENA</span></a>
     <p style="margin-top:12px;max-width:380px">Que planter dans mon jardin ? Des conseils pour chez vous, à partir du climat relevé par Météo-France et des cartes officielles des sols.</p>
-    <span class="maqpill">Version de travail · Toulouse seulement</span></div>
+    <span class="maqpill">Version de travail</span></div>
   <div><strong>Le site</strong><ul><li><a data-monjardin href="#accueil">Mon jardin</a></li><li><a href="#que-planter-en-novembre-toulouse-31555" data-moislien>Que planter ce mois-ci</a></li><li><a href="#quand-planter-tomate-toulouse-31555">Quand planter les tomates</a></li><li><a href="#guides">Guides</a></li><li><a href="#fruitiers">Arbres fruitiers et pollinisateurs</a></li><li><a href="#a-propos">À propos</a></li></ul></div>
   <div><strong>Les sites Arena</strong><ul><li><a href="https://argilearena.fr/">Argile Arena</a></li><li><a href="https://ehpadarena.fr/">EHPAD Arena</a></li><li><a href="https://scolarena.fr/">Scol Arena</a></li><li><a href="https://eauarena.fr/">Eau Arena</a></li><li><a href="https://jobarena.org/">Job Arena</a></li></ul></div>`)} /></footer>
 <dialog id="fiche" aria-label="Fiche plante">
