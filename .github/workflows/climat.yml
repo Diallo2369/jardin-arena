@@ -1,0 +1,35 @@
+name: Climat des communes (essai)
+
+on:
+  push:
+    branches: [climat]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  climat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NODE_OPTIONS: --max-old-space-size=8192
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Cache des données publiques
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+      - name: Télécharger les relevés, les communes et les altitudes
+        run: node scripts/climat/fetch.mjs
+      - name: Calculer le climat des communes
+        run: node scripts/climat/prepare.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: climat
+          path: data/build/climat
