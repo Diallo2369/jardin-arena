@@ -33,17 +33,18 @@ async function worker(q) { for (let d; (d = q.shift());) for (const per of ["pre
 const q = [...list];
 await Promise.all(Array.from({ length: 6 }, () => worker(q)));
 console.log(`Météo-France : ${n} fichiers`);
-// 2. Communes (métropole), avec centre, codes postaux et population
-const com = await (await get("https://geo.api.gouv.fr/communes?fields=nom,code,codesPostaux,centre,population,codeDepartement&format=json&geometry=centre")).json();
-const metro = com.filter(c => c.centre && !c.codeDepartement.startsWith("97") && (!only || only.includes(c.codeDepartement.replace(/^2[AB]$/, "20"))));
-// 3. Altitude du centre de chaque commune (par paquets)
+// 2. Communes (métropole), avec la position de la mairie (à défaut le centre), codes postaux et population
+const com = await (await get("https://geo.api.gouv.fr/communes?fields=nom,code,codesPostaux,centre,mairie,population,codeDepartement&format=json")).json();
+for (const c of com) c.pos = (c.mairie && c.mairie.coordinates) || (c.centre && c.centre.coordinates);
+const metro = com.filter(c => c.pos && !c.codeDepartement.startsWith("97") && (!only || only.includes(c.codeDepartement.replace(/^2[AB]$/, "20"))));
+// 3. Altitude de la mairie de chaque commune (par paquets) : c'est là que vivent les habitants, pas au centre géométrique
 const ALTI = "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json";
-let alts = {}; const altFile = path.join(RAW, "altitudes.json");
+let alts = {}; const altFile = path.join(RAW, "altitudes-mairie.json");
 if (fs.existsSync(altFile)) alts = JSON.parse(fs.readFileSync(altFile, "utf8"));
 const todo = metro.filter(c => alts[c.code] == null);
 for (let i = 0; i < todo.length; i += 200) {
   const part = todo.slice(i, i + 200);
-  const body = { lon: part.map(c => c.centre.coordinates[0]).join("|"), lat: part.map(c => c.centre.coordinates[1]).join("|"), resource: "ign_rge_alti_wld", zonly: "true", delimiter: "|" };
+  const body = { lon: part.map(c => c.pos[0]).join("|"), lat: part.map(c => c.pos[1]).join("|"), resource: "ign_rge_alti_wld", zonly: "true", delimiter: "|" };
   try {
     let j = null;
     for (let t = 1; t <= 3 && !j; t++) { try { const r = await fetch(ALTI, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }); if (r.ok) j = await r.json(); else if (t === 3) console.log("  altitude : HTTP " + r.status, (await r.text()).slice(0, 200)); } catch (e) { if (t === 3) throw e; } if (!j) await new Promise(r => setTimeout(r, 1500 * t)); }
@@ -53,5 +54,5 @@ for (let i = 0; i < todo.length; i += 200) {
   if (i % 4000 === 0) console.log(`  altitudes : ${Math.min(i + 200, todo.length)} / ${todo.length}`);
 }
 fs.writeFileSync(altFile, JSON.stringify(alts));
-fs.writeFileSync(path.join(RAW, "communes.json"), JSON.stringify(metro.map(c => ({ code: c.code, nom: c.nom, dep: c.codeDepartement, cp: (c.codesPostaux || []).sort()[0] || "", pop: c.population || 0, lon: c.centre.coordinates[0], lat: c.centre.coordinates[1], alt: alts[c.code] ?? null }))));
+fs.writeFileSync(path.join(RAW, "communes.json"), JSON.stringify(metro.map(c => ({ code: c.code, nom: c.nom, dep: c.codeDepartement, cp: (c.codesPostaux || []).sort()[0] || "", pop: c.population || 0, lon: c.pos[0], lat: c.pos[1], mairie: !!c.mairie, alt: alts[c.code] ?? null }))));
 console.log(`Communes : ${metro.length} · altitude connue : ${metro.filter(c => alts[c.code] != null).length}`);
