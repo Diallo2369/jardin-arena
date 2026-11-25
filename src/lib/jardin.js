@@ -16,7 +16,7 @@ let YEARS=REF_Y, MONTHS=REF_M, GEL2=REF_G, COM=null;
 
 /* ===================== ADRESSES ===================== */
 const BASE=((typeof import.meta!=="undefined"&&import.meta.env&&import.meta.env.BASE_URL)||"/").replace(/\/$/,"");
-const SLUG_RE="((?:[a-z0-9]+-)*[0-9][0-9ab][0-9]{3})";
+const SLUG_RE="((?:[a-z0-9]+-)*[0-9][0-9abAB][0-9]{3})";
 function url(h){ let m; h=(h||"").replace(/^#/,"");
   if(!h||h==="accueil") return BASE+"/";
   if((m=h.match(/^commune-(.+)$/))) return `${BASE}/que-planter/${m[1]}/`;
