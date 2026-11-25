@@ -522,7 +522,8 @@ function listeHTML(){
   const sel=filtrer(), V=FILTRE.vue;
   const ok=V==="warn"?[]:sel.filter(x=>x.v.lvl==="ok"), warn=V==="ok"?[]:sel.filter(x=>x.v.lvl==="warn"), bad=V?[]:sel.filter(x=>x.v.lvl==="bad");
   const html=section(ok,"ok","Bons choix","Ils réussissent bien ici, sans soin particulier.")+section(warn,"warn","Possibles, avec une précaution","Ça peut marcher : la précaution est indiquée sur chaque plante.")+
-    (bad.length?`<details class="fold"><summary>À éviter dans votre jardin (${bad.length})</summary><div class="in">${SSR?`<ul class="plite">${bad.map(ligneLite).join("")}</ul>`:`<div class="plist">${bad.map(x=>carte(x.p,x.v)).join("")}</div>`}</div></details>`:"");
+    (!ok.length&&!warn.length&&bad.length?`<div class="empty">Aucune plante ne convient avec ces critères. ${filtresActifs()?`<button class="linkbtn" onclick="resetF()">Effacer les filtres</button>`:""}</div>`:"")+
+    (bad.length?`<details class="fold"${!ok.length&&!warn.length?" open":""}><summary>À éviter dans votre jardin (${bad.length})</summary><div class="in">${SSR?`<ul class="plite">${bad.map(ligneLite).join("")}</ul>`:`<div class="plist">${bad.map(x=>carte(x.p,x.v)).join("")}</div>`}</div></details>`:"");
   return {html:html||`<div class="empty">Aucune plante ne correspond. <button class="linkbtn" onclick="resetF()">Effacer les filtres</button></div>`, n:ok.length+warn.length+bad.length};
 }
 function filtresActifs(){return (FILTRE.cat!=="tout")+(!!ANS.expo)+(!!ANS.sol)+FILTRE.rare+(!!FILTRE.vue)+(!!FILTRE.q.trim());}
@@ -539,7 +540,7 @@ function majListe(scroll){
   const bar=$("#fbar-ctrl"); const f=document.activeElement&&document.activeElement.id==="fq"; const pos=f?$("#fq").selectionStart:null;
   bar.innerHTML=barreHTML(); if(f){const i=$("#fq");i.focus();i.setSelectionRange(pos,pos);}
   $("#fcount").textContent=r.n+(r.n>1?" plantes":" plante");
-  const all=P.map(p=>verdict(p).lvl); $("#n-ok").textContent=all.filter(l=>l==="ok").length; $("#n-warn").textContent=all.filter(l=>l==="warn").length;
+  const all=filtrer().map(x=>x.v.lvl); $("#n-ok").textContent=all.filter(l=>l==="ok").length; $("#n-warn").textContent=all.filter(l=>l==="warn").length;   // compteurs = plantes affichées (type, rares, recherche, jardin)
   document.querySelectorAll(".cnt").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v==="rare"?FILTRE.rare:FILTRE.vue===b.dataset.v));
   if(scroll)setTimeout(()=>goTo("plantes"),30);
 }
@@ -559,7 +560,7 @@ function resumeClimat(c){
   const terre=c.sols?` La terre est ${c.sols.resume}, d'après la carte des sols INRAE : dans votre jardin, elle peut être différente, surtout si elle a été rapportée.`:"";
   return `Un hiver ${hiver}, des étés ${ete}${sec} (${C.pluieEte} mm de pluie de juin à août)${sol}${terre}`; }
 function pageCommune(c){
-  const all=P.map(p=>verdict(p).lvl), nOk=all.filter(l=>l==="ok").length, nW=all.filter(l=>l==="warn").length;
+  const all=filtrer().map(x=>x.v.lvl), nOk=all.filter(l=>l==="ok").length, nW=all.filter(l=>l==="warn").length;
   const ce=P.filter(p=>((p.plant||[]).includes(MOIS_COURANT)||(p.semis||[]).includes(MOIS_COURANT))&&verdict(p).lvl!=="bad");
   
   return `<div class="wrap"><p class="crumb"><a href="#accueil">Accueil</a> › ${c.dep} › ${c.nom}</p></div>
