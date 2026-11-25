@@ -1,0 +1,51 @@
+name: Construire et publier
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "37 4 * * 1"   # chaque lundi, 4 h 37 UTC : données et mois en cours à jour
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      # Aperçu sans domaine : https://diallo2369.github.io/jardin-arena/
+      # Avec le domaine : variable SITE_URL=https://<domaine> (le sous-dossier disparaît alors)
+      SITE_URL: ${{ vars.SITE_URL || 'https://diallo2369.github.io' }}
+      BASE_PATH: ${{ (vars.SITE_URL && vars.BASE_PATH) || (!vars.SITE_URL && '/jardin-arena') || '' }}
+      NOINDEX: ${{ vars.NOINDEX || '1' }}
+      CF_BEACON: ${{ vars.CF_BEACON || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

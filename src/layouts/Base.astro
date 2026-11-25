@@ -1,0 +1,56 @@
+---
+import "@fontsource/figtree/400.css";
+import "@fontsource/figtree/500.css";
+import "@fontsource/figtree/600.css";
+import "@fontsource/figtree/700.css";
+import "@fontsource/figtree/800.css";
+import "../styles/site.css";
+import { fixLinks } from "../lib/jardin.js";
+import { SITE_URL, NOINDEX, CF_BEACON } from "../lib/site-config.js";
+const { id, title, desc, html } = Astro.props;
+const B = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canon = SITE_URL + B + Astro.url.pathname.replace(B, "");
+const shell = (s) => fixLinks(s);
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={desc}>
+<link rel="canonical" href={canon}>
+{NOINDEX && <meta name="robots" content="noindex" data-ix="0">}
+{!NOINDEX && <meta name="robots" content="index,follow" data-ix="1">}
+<meta property="og:type" content="website"><meta property="og:title" content={title}><meta property="og:description" content={desc}><meta property="og:url" content={canon}><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Jardin Arena">
+<meta name="theme-color" content="#1f5138">
+<link rel="icon" href={B + "/favicon.svg"} type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#app">Aller au contenu</a>
+<header class="top"><div class="wrap" set:html={shell(`
+  <a class="logo" href="#accueil" aria-label="Jardin Arena, accueil"><span class="lw">Jardin</span><span class="la">ARENA</span></a>
+  <nav class="menu"><a href="#guides">Guides</a><a href="#a-propos">À propos</a><a class="cta" data-monjardin href="#accueil">Mon jardin</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>`)} />
+<div id="mmenu" class="mmenu" hidden><div class="wrap" set:html={shell(`
+  <a href="#que-planter-en-novembre-toulouse-31555" data-moislien>Que planter ce mois-ci</a>
+  <a href="#fruitiers">Arbres fruitiers et pollinisateurs</a>
+  <a href="#guides">Guides</a>
+  <a href="#a-propos">À propos</a>`)} /></div>
+</header>
+<main id="app" data-page={id} set:html={html} />
+<footer><div class="wrap foot" set:html={shell(`
+  <div><a class="logo" href="#accueil" aria-label="Jardin Arena, accueil"><span class="lw">Jardin</span><span class="la">ARENA</span></a>
+    <p style="margin-top:12px;max-width:380px">Que planter dans mon jardin ? Des conseils pour chez vous, à partir du climat relevé par Météo-France et des cartes officielles des sols.</p>
+    <span class="maqpill">Version de travail · Toulouse seulement</span></div>
+  <div><strong>Le site</strong><ul><li><a data-monjardin href="#accueil">Mon jardin</a></li><li><a href="#que-planter-en-novembre-toulouse-31555" data-moislien>Que planter ce mois-ci</a></li><li><a href="#quand-planter-tomate-toulouse-31555">Quand planter les tomates</a></li><li><a href="#guides">Guides</a></li><li><a href="#fruitiers">Arbres fruitiers et pollinisateurs</a></li><li><a href="#a-propos">À propos</a></li></ul></div>
+  <div><strong>Les sites Arena</strong><ul><li><a href="https://argilearena.fr/">Argile Arena</a></li><li><a href="https://ehpadarena.fr/">EHPAD Arena</a></li><li><a href="https://scolarena.fr/">Scol Arena</a></li><li><a href="https://eauarena.fr/">Eau Arena</a></li><li><a href="https://jobarena.org/">Job Arena</a></li></ul></div>`)} /></footer>
+<dialog id="fiche" aria-label="Fiche plante">
+  <div class="dhead"><div class="dtags" id="fiche-tags"></div><a id="fiche-full" class="dfull" href="#">Ouvrir la page</a><button class="dclose" onclick="closeFiche()" aria-label="Fermer">×</button></div>
+  <div class="dbody" id="fiche-body"></div>
+</dialog>
+<div class="tipbox" id="tip"></div>
+<script src="../scripts/app.js"></script>
+{CF_BEACON && <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: CF_BEACON })}></script>}
+</body>
+</html>

@@ -1,0 +1,2341 @@
+{
+ "pommier-reine-des-reinettes": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.truffaut.com/pommier-reine-reinette-tige-10-12-cm-conteneur-25-litres-199867.html",
+    "https://www.truffaut.com/pommier-reine-reinettes-gobelet-3-ans-age-ctr-12-litres-37779.html"
+   ],
+   "note": "Autofertile : non. Pollinisateurs : Golden Delicious, Melrose, Idared (même floraison)."
+  },
+  "flor": {
+   "v": "avril",
+   "src": [
+    "https://www.truffaut.com/pommier-reine-reinette-tige-10-12-cm-conteneur-25-litres-199867.html"
+   ],
+   "note": "Floraison pendant tout le mois d'avril, très bonne pollinisatrice."
+  },
+  "recolte": {
+   "v": "septembre à octobre",
+   "src": [
+    "https://www.truffaut.com/pommier-reine-reinettes-gobelet-3-ans-age-ctr-12-litres-37779.html"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "6 m en tige (demi-tige 5 m)",
+   "src": [
+    "https://www.truffaut.com/pommier-reine-reinette-tige-10-12-cm-conteneur-25-litres-199867.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "rustique, réussit en montagne",
+   "src": [
+    "https://www.truffaut.com/pommier-reine-reinette-tige-10-12-cm-conteneur-25-litres-199867.html"
+   ],
+   "note": "Ne craint pas les gelées."
+  }
+ },
+ "pommier-golden": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.truffaut.com/pommier-golden-delicious-pot-25l-1-2-tige-739325.html",
+    "https://www.truffaut.com/pommier-golden-delicious-gobelet-2-ans-age-213518.html"
+   ],
+   "note": "Non autofertile. Pollinisateurs : Reine des Reinettes, Granny Smith, Melrose, Idared."
+  },
+  "flor": {
+   "v": "groupe de pollinisation 4 (mi-saison)",
+   "src": [
+    "https://www.rhs.org.uk/plants/73200/malus-domestica-golden-delicious-d/details"
+   ],
+   "note": "Bon pollinisateur des autres pommiers."
+  },
+  "recolte": {
+   "v": "septembre à octobre",
+   "src": [
+    "https://www.truffaut.com/pommier-golden-delicious-pot-25l-1-2-tige-739325.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair parfumée, sucrée et acidulée",
+   "src": [
+    "https://www.truffaut.com/pommier-golden-delicious-palmette-en-u-197908.html"
+   ],
+   "note": ""
+  }
+ },
+ "poirier-williams": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.truffaut.com/poirier-williams-demi-tige-4-5-ans-170-180-cm-pot-15l-37705.html",
+    "https://pepinsperdus.fr/fr/poirier-nashi/250-poirier-williams.html"
+   ],
+   "note": "Pollinisateurs : Conférence, Doyenné du Comice. Pépins Perdus : auto-stérile, à associer à une variété à floraison proche."
+  },
+  "flor": {
+   "v": "début avril",
+   "src": [
+    "https://www.truffaut.com/poirier-williams-gobelet-3-ans-age-ctr-12-litres-37709.html"
+   ],
+   "note": "Floraison légèrement tardive, début avril."
+  },
+  "recolte": {
+   "v": "août à septembre",
+   "src": [
+    "https://www.truffaut.com/poirier-williams-demi-tige-4-5-ans-170-180-cm-pot-15l-37705.html",
+    "https://pepinsperdus.fr/fr/poirier-nashi/250-poirier-williams.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair juteuse, sucrée, musquée",
+   "src": [
+    "https://www.truffaut.com/poirier-williams-demi-tige-4-5-ans-170-180-cm-pot-15l-37705.html"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "psylle, tavelure, blettissement",
+   "src": [
+    "https://www.grab.fr/124"
+   ],
+   "note": ""
+  },
+  "florDoy": {
+   "v": "début avril (jour 92)",
+   "src": [
+    "https://www.truffaut.com/poirier-williams-gobelet-3-ans-age-ctr-12-litres-37709.html"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/poirier-nashi/250-poirier-williams.html"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "craint le calcaire",
+   "src": [
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/3-Travaux/Plantation_instructions_Dewitte_Lateur.pdf",
+    "https://www.dalival.com/wp-content/uploads/2019/07/Pommoscope-32-2.pdf",
+    "https://www.grab.fr/124"
+   ],
+   "note": "Le cognassier est sensible au calcaire actif (chlorose au-delà de 8 %) ; les francs le sont beaucoup moins."
+  }
+ },
+ "cerisier-burlat": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2024/02/choisir_cerises_AB.pdf",
+    "https://pepinsperdus.fr/fr/cerisier/195-cerisier-burlat.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/cerisier-burlat/"
+   ],
+   "note": "Pas autofertile. Pollinisateurs cités : Van, Starking, Folfer, Cœur de Pigeon, Early Rivers (Pépinière du Bosc), Arcina, Brooks, Rainier (GRAB)."
+  },
+  "flor": {
+   "v": "vers le 15 avril",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2020/02/Fiche-Cerisier-pr-visite.pdf",
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/1-Choix/Choix_CERISES.pdf"
+   ],
+   "note": "Variété de référence de floraison (15 avril ± 15 j)."
+  },
+  "recolte": {
+   "v": "mi-mai",
+   "src": [
+    "https://pepinsperdus.fr/fr/cerisier/195-cerisier-burlat.html",
+    "https://www.grab.fr/wp-content/uploads/2020/02/Fiche-Cerisier-pr-visite.pdf",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/cerisier-burlat/"
+   ],
+   "note": "Mi-mai chez Pépins Perdus (Haute-Garonne) ; 16 mai à Avignon (GRAB)."
+  },
+  "florDoy": {
+   "v": "vers le 15 avril (jour 105)",
+   "src": [
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/1-Choix/Choix_CERISES.pdf",
+    "https://www.grab.fr/wp-content/uploads/2020/02/Fiche-Cerisier-pr-visite.pdf"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/cerisier/195-cerisier-burlat.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/cerisier-burlat/"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "4 à 6 m, porte-greffe Sainte-Lucie",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/cerisier-burlat/"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "apprécie le calcaire",
+   "src": [
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/3-Travaux/Plantation_instructions_Dewitte_Lateur.pdf"
+   ],
+   "note": ""
+  }
+ },
+ "poirier-conference": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://pepinsperdus.fr/fr/poirier-nashi/240-poirier-conference.html",
+    "https://ishs.org/ishs-article/1231_6/",
+    "https://www.truffaut.com/poirier-conference-lr-15l-1-2t-4-5-ans-1051432.html",
+    "https://www.truffaut.com/poirier-conference-h170-180-demi-tige-4-5-ans-pot-15l-37683.html"
+   ],
+   "note": "Pépins Perdus : auto-stérile. Reste parthénocarpe (quelques fruits sans pépins même mal pollinisé)."
+  },
+  "flor": {
+   "v": "début avril",
+   "src": [
+    "https://www.truffaut.com/poirier-conference-gobelet-3-ans-age-ctr-12-litres-37687.html"
+   ],
+   "note": "Floraison tardive, à l'abri des gelées."
+  },
+  "recolte": {
+   "v": "septembre à octobre (août-octobre près de Toulouse)",
+   "src": [
+    "https://pepinsperdus.fr/fr/poirier-nashi/240-poirier-conference.html",
+    "https://www.truffaut.com/poirier-conference-demi-tige-ctr-213377.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair blanche saumonée, fine, très juteuse, sucrée, un peu acidulée",
+   "src": [
+    "https://www.truffaut.com/poirier-conference-h170-180-demi-tige-4-5-ans-pot-15l-37683.html"
+   ],
+   "note": ""
+  },
+  "florDoy": {
+   "v": "début avril (jour 92)",
+   "src": [
+    "https://www.truffaut.com/poirier-conference-gobelet-3-ans-age-ctr-12-litres-37687.html"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/poirier-nashi/240-poirier-conference.html"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "craint le calcaire",
+   "src": [
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/3-Travaux/Plantation_instructions_Dewitte_Lateur.pdf",
+    "https://www.dalival.com/wp-content/uploads/2019/07/Pommoscope-32-2.pdf",
+    "https://www.grab.fr/124"
+   ],
+   "note": "Le cognassier est sensible au calcaire actif (chlorose au-delà de 8 %) ; les francs le sont beaucoup moins."
+  }
+ },
+ "cerisier-stella": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.rhs.org.uk/plants/59056/prunus-avium-stella-f/details",
+    "https://treefruit.wsu.edu/?p=1349"
+   ],
+   "note": "Autofertile ; pollinise aussi la plupart des autres cerisiers."
+  },
+  "taille": {
+   "v": "2,5 à 4 m",
+   "src": [
+    "https://www.rhs.org.uk/plants/59056/i-prunus-avium-i-stella-(f)/details"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "fruits qui éclatent par temps de pluie",
+   "src": [
+    "https://www.rhs.org.uk/plants/59056/prunus-avium-stella-f/details"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "apprécie le calcaire",
+   "src": [
+    "https://rwdf.cra.wallonie.be/sites/default/files/linked_docs/Fruits/3-Travaux/Plantation_instructions_Dewitte_Lateur.pdf"
+   ],
+   "note": ""
+  }
+ },
+ "abricotier-bergeron": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://grab.fr/687",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-resistant-bergeron/"
+   ],
+   "note": "Autofertile (Truffaut ; auto-compatible selon le GRAB)."
+  },
+  "flor": {
+   "v": "mars (demi-tardive)",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2020/02/Fiche-Abricotier-pr-visite.pdf",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-resistant-bergeron/"
+   ],
+   "note": "20 mars à Avignon en 2011 ; floraison tardive qui la protège des gelées (Pépinière du Bosc)."
+  },
+  "recolte": {
+   "v": "mi-juillet",
+   "src": [
+    "https://pepinsperdus.fr/fr/abricotier/379-abricot-bergeron.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-resistant-bergeron/"
+   ],
+   "note": "Mi-juillet à début août (Pépinière du Bosc)."
+  },
+  "gout": {
+   "v": "chair ferme, sucrée et acidulée",
+   "src": [
+    "https://www.truffaut.com/abricotier-bergeron-gobelet-2-ans-age-213318.html"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "besoin en froid élevé : fleurit mal après un hiver doux",
+   "src": [
+    "https://agriculture-dromoise.fr/media/ad/AD_2024/402024/experimentation_abricot.pdf"
+   ],
+   "note": ""
+  },
+  "florDoy": {
+   "v": "20 mars (jour 79)",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2020/02/Fiche-Abricotier-pr-visite.pdf"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "taille": {
+   "v": "3 à 6 m, porte-greffe myrobolan",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-resistant-bergeron/"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-resistant-bergeron/"
+   ],
+   "note": ""
+  }
+ },
+ "abricotier-rouge-roussillon": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-rouge-du-roussillon/",
+    "https://pepinieredubosc.fr/arbres-fruitiers/abricotiers/"
+   ],
+   "note": "Un seul arbre suffit."
+  },
+  "recolte": {
+   "v": "début à mi-juillet",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-rouge-du-roussillon/",
+    "https://pepinsperdus.fr/fr/abricotier/380-abricot-rouge-du-roussillon.html"
+   ],
+   "note": "Dans le Roussillon (Pépinière du Bosc)."
+  },
+  "flor": {
+   "v": "de saison (ni précoce ni tardive)",
+   "src": [
+    "https://pepinieredubosc.fr/arbres-fruitiers/abricotiers/"
+   ],
+   "note": "Variété adaptée au sud, en climat chaud et abrité."
+  },
+  "taille": {
+   "v": "4 à 5 m, porte-greffe myrobolan",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-rouge-du-roussillon/"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/abricotier-rouge-du-roussillon/"
+   ],
+   "note": ""
+  }
+ },
+ "pecher-reine-des-vergers": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.truffaut.com/pecher-reine-vergers-demi-tige-8-10-ctr-15-litres-29611.html"
+   ],
+   "note": ""
+  },
+  "flor": {
+   "v": "fin mars",
+   "src": [
+    "https://www.truffaut.com/pecher-reine-vergers-demi-tige-8-10-ctr-15-litres-29611.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "vers le 10 août",
+   "src": [
+    "https://pepinsperdus.fr/fr/peche-et-nectarine/384-pecher-reine-des-vergers.html",
+    "https://www.truffaut.com/pecher-reine-vergers-demi-tige-8-10-ctr-15-litres-29611.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair juteuse et très sucrée, légèrement acidulée",
+   "src": [
+    "https://www.truffaut.com/pecher-reine-vergers-demi-tige-8-10-ctr-15-litres-29611.html"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "peu sensible à la cloque et à l'oïdium",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2024/02/choisir_peches_enAB.pdf"
+   ],
+   "note": ""
+  },
+  "florDoy": {
+   "v": "fin mars (jour 85)",
+   "src": [
+    "https://www.truffaut.com/pecher-reine-vergers-demi-tige-8-10-ctr-15-litres-29611.html"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "calc": {
+   "v": "craint le calcaire actif",
+   "src": [
+    "https://www.memoireonline.com/04/16/9474/m_Production-vegetale-pecher4.html",
+    "https://arbrefruitiers.com/products/frs2024120010002dc0009a50004231343"
+   ],
+   "note": "Porte-greffes tolérants : prunier Saint-Julien, pêcher × amandier (GF 677)."
+  }
+ },
+ "prunier-reine-claude-oullins": {
+  "pollin": {
+   "v": "partiel",
+   "src": [
+    "https://pepinsperdus.fr/fr/prunier/278-prunier-reine-claude-d-oullins.html",
+    "https://www.rhs.org.uk/plants/47582/prunus-domestica-oullins-gage-cd/details"
+   ],
+   "note": "Pépins Perdus : partiellement autofertile, plus productif avec une 2e variété (la RHS le dit autofertile)."
+  },
+  "flor": {
+   "v": "mi à fin avril",
+   "src": [
+    "https://www.vdberk.co.uk/trees/prunus-domestica-reine-claude-d-oullins/"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "juillet à août, étalée",
+   "src": [
+    "https://pepinsperdus.fr/fr/prunier/278-prunier-reine-claude-d-oullins.html",
+    "https://www.rhs.org.uk/plants/47582/prunus-domestica-oullins-gage-cd/details"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "2,5 à 4 m selon le porte-greffe, jusqu'à 4 à 7 m",
+   "src": [
+    "https://www.rhs.org.uk/plants/47582/prunus-domestica-oullins-gage-cd/details",
+    "https://www.vdberk.co.uk/trees/prunus-domestica-reine-claude-d-oullins/"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/prunier-reine-claude.html"
+   ],
+   "note": "Rusticité des Reine-Claude."
+  }
+ },
+ "amandier-ferragnes": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://gironde.chambre-agriculture.fr/fileadmin/user_upload/Nouvelle-Aquitaine/100_Inst-Gironde/Documents/pdf_diversifier_votre_activite/2024_fichediv_amandes_vf_web.pdf",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/amandier-ferragnes/"
+   ],
+   "note": "Pollinisateurs : Ferraduel (association classique), Aï, Texas."
+  },
+  "flor": {
+   "v": "début mars (mi-tardive)",
+   "src": [
+    "https://gironde.chambre-agriculture.fr/fileadmin/user_upload/Nouvelle-Aquitaine/100_Inst-Gironde/Documents/pdf_diversifier_votre_activite/2024_fichediv_amandes_vf_web.pdf",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/amandier-ferragnes/"
+   ],
+   "note": "Fleurs détruites à −2 °C. La Pépinière du Bosc la classe en floraison tardive pour un amandier."
+  },
+  "recolte": {
+   "v": "septembre",
+   "src": [
+    "https://pepinsperdus.fr/fr/fruits-secs/314-amandier-ferragnes.html"
+   ],
+   "note": ""
+  },
+  "florDoy": {
+   "v": "début mars (jour 62)",
+   "src": [
+    "https://gironde.chambre-agriculture.fr/fileadmin/user_upload/Nouvelle-Aquitaine/100_Inst-Gironde/Documents/pdf_diversifier_votre_activite/2024_fichediv_amandes_vf_web.pdf"
+   ],
+   "note": "Date de début de floraison utilisée pour le risque de gel des fleurs."
+  },
+  "sech": {
+   "v": "résiste très bien à la sécheresse",
+   "src": [
+    "https://pepinsperdus.fr/fr/fruits-secs/314-amandier-ferragnes.html"
+   ],
+   "note": ""
+  }
+ },
+ "figuier-brown-turkey": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.truffaut.com/figuier-brown-turkey-bio-1010831.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-15 °C, repart de la souche après un gel sévère",
+   "src": [
+    "https://www.truffaut.com/figuier-brown-turkey-sur-tige-h-90-cm-pot-o19-cm.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "figues-fleurs fin juin-début juillet, puis septembre-octobre",
+   "src": [
+    "https://www.truffaut.com/figuier-brown-turkey-bio-1010831.html"
+   ],
+   "note": "Variété bifère ; au nord de la Loire, une seule récolte."
+  },
+  "taille": {
+   "v": "3 à 5 m",
+   "src": [
+    "https://www.natureetdecouvertes.com/jardin/jardinage/semis-fruits/figuier-brown-turkey-ficus-carica-pot-de-1.5l-92603040"
+   ],
+   "note": ""
+  }
+ },
+ "kiwi-hayward": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.truffaut.com/actinidia-haywar-ab-pot-1-5l-791600.html",
+    "https://www.truffaut.com/pied-kiwi-chinensis-haywar-femelle-pot-3-litres-873236.html"
+   ],
+   "note": "Variété femelle : il faut un pied mâle 'Tomuri' (même floraison). Un mâle féconde 4 à 6 femelles."
+  },
+  "flor": {
+   "v": "juin",
+   "src": [
+    "https://www.truffaut.com/kiwi-femelle-hayward-1-5l.html"
+   ],
+   "note": "Floraison très tardive, à l'abri des gelées."
+  },
+  "recolte": {
+   "v": "fin octobre à début novembre, avant les gelées",
+   "src": [
+    "https://www.truffaut.com/actinidia-haywar-ab-pot-1-5l-791600.html",
+    "https://www.truffaut.com/kiwi-femelle-hayward-1-5l.html"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "liane de 3 à 5 m de haut",
+   "src": [
+    "https://www.truffaut.com/kiwi-femelle-hayward-1-5l.html"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "craint le calcaire",
+   "src": [
+    "https://www.agrobio-bretagne.org/wp-content/uploads/2012/04/fiche_kiwi.pdf",
+    "https://revues.cirad.fr/index.php/fruits/article/download/34235/33488/36753"
+   ],
+   "note": "pH neutre à légèrement acide ; chlorose ferrique en sol calcaire."
+  }
+ },
+ "kiwi-tomuri": {
+  "pollin": {
+   "v": "male",
+   "src": [
+    "https://www.truffaut.com/actinidia-tomuri-ab-pot-1-5l-791601.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/kiwi-male-tomuri/"
+   ],
+   "note": "Pied mâle, ne donne pas de fruits. Un mâle pollinise 6 à 8 femelles à moins de 20 m (Pépinière du Bosc)."
+  },
+  "flor": {
+   "v": "mai-juin, en même temps que 'Hayward'",
+   "src": [
+    "https://www.mr-bricolage.fr/kiwi-male-tomuri-actinidia-male-actinidia-deliciosa.html",
+    "https://www.truffaut.com/actinidia-tomuri-ab-pot-1-5l-791601.html"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "6 m",
+   "src": [
+    "https://www.truffaut.com/actinidia-tomuri-ab-pot-1-5l-791601.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-15 °C",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/kiwi-male-tomuri/"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "craint le calcaire",
+   "src": [
+    "https://www.agrobio-bretagne.org/wp-content/uploads/2012/04/fiche_kiwi.pdf",
+    "https://revues.cirad.fr/index.php/fruits/article/download/34235/33488/36753"
+   ],
+   "note": "pH neutre à légèrement acide ; chlorose ferrique en sol calcaire."
+  }
+ },
+ "framboisier-heritage": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.truffaut.com/framboisier-heritage-ab-pot-1-5l-827036.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "fin août aux premières gelées",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/366-framboisier-heritage.html",
+    "https://www.ferrierefleurs.com/framboisier-heritage/",
+    "https://www.natureetdecouvertes.com/jardin/jardinage/semis-fruits/framboisier-heritage-pot-de-1.5l-92602500"
+   ],
+   "note": "Une petite récolte en juin si l'on garde les cannes de l'année précédente."
+  },
+  "flor": {
+   "v": "mai à juin",
+   "src": [
+    "https://www.truffaut.com/framboisier-heritage-ab-pot-3litres-459532.html"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "1,5 m",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/366-framboisier-heritage.html",
+    "https://www.natureetdecouvertes.com/jardin/jardinage/semis-fruits/framboisier-heritage-pot-de-1.5l-92602500"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "fruits fermes et acidulés",
+   "src": [
+    "https://www.truffaut.com/framboisier-heritage-ab-pot-1-5l-827036.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/366-framboisier-heritage.html"
+   ],
+   "note": ""
+  }
+ },
+ "groseillier": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.jardiner-malin.fr/actu/groseilles-rouges-et-blanches-cote-a-cote-le-duo-qui-illumine-le-jardin-en-ce-moment.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "fin juin à début juillet",
+   "src": [
+    "https://www.truffaut.com/groseilliers-quelles-varietes-choisir.html"
+   ],
+   "note": "Très précoce (RHS)."
+  },
+  "taille": {
+   "v": "1 à 1,5 m",
+   "src": [
+    "https://www.rhs.org.uk/plants/49066/ribes-rubrum-junifer-r/details"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "très rustique (RHS H6), environ -20 °C",
+   "src": [
+    "https://www.rhs.org.uk/plants/49066/ribes-rubrum-junifer-r/details",
+    "https://www.jardiner-malin.fr/actu/fiche/groseille-rouge-blanche.html"
+   ],
+   "note": ""
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.rhs.org.uk/plants/49066/ribes-rubrum-junifer-r/details"
+   ],
+   "note": ""
+  }
+ },
+ "myrtillier": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.truffaut.com/myrtille-elizabeth-1-pot.html",
+    "https://www.mesarbustes.fr/vaccinium-bluecrop-myrtillier-hybride-precoce-myrtille-a-gros-fruits.html"
+   ],
+   "note": "Autofertile ; deux pieds ou plus améliorent la récolte."
+  },
+  "recolte": {
+   "v": "fin juillet à août",
+   "src": [
+    "https://www.mesarbustes.fr/vaccinium-bluecrop-myrtillier-hybride-precoce-myrtille-a-gros-fruits.html",
+    "https://www.truffaut.com/myrtille-elizabeth-1-pot.html"
+   ],
+   "note": ""
+  },
+  "flor": {
+   "v": "avril-mai",
+   "src": [
+    "https://www.hornbach.ch/fr/p/myrtillier-bluebrop-moyen-co-5-40-60-cm/5045470/"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "1,5 à 1,7 m",
+   "src": [
+    "https://www.mr-bricolage.fr/myrtille-arbustive-blue-crop-vaccinium-corymbosum.html",
+    "https://www.hornbach.ch/fr/p/myrtillier-bluebrop-moyen-co-5-40-60-cm/5045470/"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "acide (pH 4,5 à 5,5), léger, humifère, drainé",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/656-myrtille-bluecrop.html",
+    "https://www.truffaut.com/myrtille-elizabeth-1-pot.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-30 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/656-myrtille-bluecrop.html"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "terre acide indispensable (pH 4,5 à 5,5)",
+   "src": [
+    "https://pepinsperdus.fr/fr/petits-fruits/656-myrtille-bluecrop.html",
+    "https://www.truffaut.com/myrtille-elizabeth-1-pot.html"
+   ],
+   "note": ""
+  }
+ },
+ "noisetier": {
+  "pollin": {
+   "v": "autosterile",
+   "src": [
+    "https://www.techno-science.net/fr/definitions/noisetier-commun",
+    "https://www.promessedefleurs.ie/fruit-trees/our-fruit-tree-and-berry-bush-collection/pollinator-duo-for-a-bountiful-harvest-of-hazelnuts.html"
+   ],
+   "note": "Autostérile ; pollinisateur conseillé : Merveille de Bollwiller."
+  },
+  "flor": {
+   "v": "floraison tardive (mâle et femelle)",
+   "src": [
+    "https://www.fao.org/4/X4484E/x4484e09.htm"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "septembre",
+   "src": [
+    "https://www.futura-sciences.com/planete/definitions/botanique-noisette-19563/"
+   ],
+   "note": ""
+  }
+ },
+ "vigne-chasselas": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.truffaut.com/vigne-chasselas-dore-70-80cm-pot-1-5l-16896.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "mi-août à septembre",
+   "src": [
+    "https://www.truffaut.com/vigne-chasselas-dore-70-80cm-pot-1-5l-16896.html"
+   ],
+   "note": "Se conserve jusqu'à Noël."
+  },
+  "taille": {
+   "v": "4 m de haut, 2 m de large",
+   "src": [
+    "https://www.truffaut.com/vigne-chasselas-dore-70-80cm-pot-1-5l-16896.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-10 à -15 °C",
+   "src": [
+    "https://www.natureetdecouvertes.com/jardin/jardinage/semis-fruits/vigne-chasselas-dore-taille-du-pot-en-pot-de-15-litres-93461220"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "juteuse et bien sucrée",
+   "src": [
+    "https://www.truffaut.com/vigne-chasselas-dore-70-80cm-pot-1-5l-16896.html"
+   ],
+   "note": ""
+  }
+ },
+ "kaki": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/plaqueminier-fuyu/",
+    "https://pepinieredubosc.fr/arbres-fruitiers/kakis/"
+   ],
+   "note": "Pépinière du Bosc (Hérault) : « peut produire lorsqu'il est planté seul »."
+  },
+  "flor": {
+   "v": "mai-juin",
+   "src": [
+    "https://www.truffaut.com/diospyros-kaki-demi-tige-c18l-532384.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "fin octobre à fin novembre",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/plaqueminier-fuyu/",
+    "https://pepinsperdus.fr/fr/plaqueminier/532-plaqueminier-fuyu.html"
+   ],
+   "note": "Récolte étalée ; se mange ferme dès qu'il est orange."
+  },
+  "gout": {
+   "v": "non astringent, saveur vanillée",
+   "src": [
+    "https://www.truffaut.com/kaki-fuyu-demi-tige-4-5ans-228673.html"
+   ],
+   "note": "Se mange ferme."
+  },
+  "taille": {
+   "v": "4 à 8 m (jusqu'à 10 m), porte-greffe Diospyros lotus",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/plaqueminier-fuyu/",
+    "https://pepinsperdus.fr/fr/plaqueminier/532-plaqueminier-fuyu.html"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/plaqueminier/532-plaqueminier-fuyu.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/plaqueminier-fuyu/"
+   ],
+   "note": ""
+  },
+  "mise_a_fruit": {
+   "v": "2 à 3 ans après plantation en bonnes conditions",
+   "src": [
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/plaqueminier-fuyu/"
+   ],
+   "note": ""
+  }
+ },
+ "grenadier": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://jardin-thuret.hub.inrae.fr/media/fiches-especes-ardem-2023/punica-granatum.pdf",
+    "https://pepinieredubosc.fr/arbres-fruitiers/grenadiers/"
+   ],
+   "note": "INRAE, jardin botanique de la Villa Thuret."
+  },
+  "rust": {
+   "v": "-10 à -12 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/grenadier/79-grenadier-provence.html",
+    "https://pepinieredubosc.fr/arbres-fruitiers/grenadiers/"
+   ],
+   "note": "Les fleurs gèlent souvent ; repart de la souche après un gel."
+  },
+  "flor": {
+   "v": "juin à août",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/grenadier.html"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "septembre à novembre",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/grenadier.html",
+    "https://pepinieredubosc.fr/arbres-fruitiers/grenadiers/"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "3 à 5 m",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/grenadier.html"
+   ],
+   "note": ""
+  }
+ },
+ "jujubier-li": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://pepinsperdus.fr/fr/jujubier/684-jujubier-li.html",
+    "https://plantingjustice.org/products/li-jujube-organic",
+    "https://devilmountainnursery.com/jujube-li-chinese-date/",
+    "https://pepinieredubosc.fr/arbres-fruitiers/jujubiers/"
+   ],
+   "note": "Pépins Perdus : autofertile ; un 'Lang' augmente la récolte (sources américaines)."
+  },
+  "rust": {
+   "v": "environ -15 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/jujubier/684-jujubier-li.html",
+    "https://plantingjustice.org/products/li-jujube-organic",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/jujubier-li-greffe/"
+   ],
+   "note": "Valeur la plus prudente retenue (les sources américaines indiquent plus)."
+  },
+  "recolte": {
+   "v": "septembre à novembre",
+   "src": [
+    "https://pepinsperdus.fr/fr/jujubier/684-jujubier-li.html",
+    "https://plantingjustice.org/products/li-jujube-organic",
+    "https://aggie-horticulture.tamu.edu/fruit-nut/fact-sheets/jujube/",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/jujubier-li-greffe/"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "croquant, se mange frais ou séché",
+   "src": [
+    "https://aggie-horticulture.tamu.edu/fruit-nut/fact-sheets/jujube/"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "6 à 6,5 m",
+   "src": [
+    "https://pepinsperdus.fr/fr/jujubier/684-jujubier-li.html"
+   ],
+   "note": ""
+  },
+  "sech": {
+   "v": "résiste très bien à la sécheresse",
+   "src": [
+    "https://pepinsperdus.fr/fr/jujubier/684-jujubier-li.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/jujubier-li-greffe/"
+   ],
+   "note": ""
+  }
+ },
+ "feijoa-coolidge": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://ucanr.edu/node/109899",
+    "https://www.promessedefleurs.ie/gardening-tips/advicesheet/choosing-a-brazilian-guava-or-feijoa/",
+    "https://pepinsperdus.fr/fr/feijoa/370-feijoa-coolidge.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/feijoa-coolidge/"
+   ],
+   "note": "Réputé autofertile ; produit davantage avec un 2e feijoa."
+  },
+  "rust": {
+   "v": "-12 à -17 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/feijoa/370-feijoa-coolidge.html",
+    "https://www.promessedefleurs.ie/gardening-tips/advicesheet/choosing-a-brazilian-guava-or-feijoa/",
+    "https://pepinieredubosc.fr/arbres-fruitiers/feijoa/"
+   ],
+   "note": "−17 °C selon Pépins Perdus ; environ −12 °C pour le feijoa adulte selon la Pépinière du Bosc. Le site retient −12 °C par prudence."
+  },
+  "recolte": {
+   "v": "octobre",
+   "src": [
+    "https://pepinsperdus.fr/fr/feijoa/370-feijoa-coolidge.html",
+    "https://www.promessedefleurs.ie/gardening-tips/advicesheet/choosing-a-brazilian-guava-or-feijoa/"
+   ],
+   "note": ""
+  },
+  "flor": {
+   "v": "juin-juillet",
+   "src": [
+    "https://www.promessedefleurs.ie/gardening-tips/familysheet/emfeijoa-sellowiana-em-brazilian-guava-to-plant-to-grow-and-harvest-its-fruits"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "environ 4 m",
+   "src": [
+    "https://www.promessedefleurs.ie/fruit-trees/fruit-trees-by-variety/feijoa-trees-acca/feijoa-sellowiana-coolidge.html"
+   ],
+   "note": ""
+  }
+ },
+ "pommier-court-pendu-gris": {
+  "pollin": {
+   "v": "partiel",
+   "src": [
+    "https://www.truffaut.com/pommier-court-pendu-gris-pret-planter-452313.html"
+   ],
+   "note": "Annoncé autofertile ; pollinisateur conseillé : Api rouge."
+  },
+  "flor": {
+   "v": "très tardive, mi-avril",
+   "src": [
+    "https://www.truffaut.com/pommier-court-pendu-gris-pret-planter-452313.html"
+   ],
+   "note": "À l'abri des gelées."
+  },
+  "recolte": {
+   "v": "octobre ; se consomme de novembre à avril",
+   "src": [
+    "https://www.truffaut.com/pommier-court-pendu-gris-pret-planter-452313.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair croquante, fine, très sucrée, parfum de cannelle",
+   "src": [
+    "https://www.truffaut.com/pommier-court-pendu-gris-pret-planter-452313.html"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "résiste très bien à la tavelure",
+   "src": [
+    "https://www.truffaut.com/pommier-court-pendu-gris-pret-planter-452313.html"
+   ],
+   "note": ""
+  }
+ },
+ "pommier-pendragon": {
+  "taille": {
+   "v": "5 m sur M106 (RHS : jusqu'à 8 m)",
+   "src": [
+    "https://pepinsperdus.fr/fr/pommier/504-pommier-pendragon.html",
+    "https://www.rhs.org.uk/plants/102217/malus-domestica-pendragon-d/details"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "chair marbrée de rouge et de blanc, douce et sucrée",
+   "src": [
+    "https://pepinsperdus.fr/fr/pommier/504-pommier-pendragon.html",
+    "https://www.rhs.org.uk/plants/102217/malus-domestica-pendragon-d/details"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-20 °C",
+   "src": [
+    "https://pepinsperdus.fr/fr/pommier/504-pommier-pendragon.html",
+    "https://www.rhs.org.uk/plants/102217/malus-domestica-pendragon-d/details"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "août",
+   "src": [
+    "https://pepinsperdus.fr/fr/pommier/504-pommier-pendragon.html",
+    "https://www.rhs.org.uk/plants/102217/malus-domestica-pendragon-d/details"
+   ],
+   "note": "Pépins Perdus (Carbonne, 31)."
+  }
+ },
+ "abricotier-noir-blackforest": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.gaujard.fr/abricots/1134-abricotier-noir-blackforest.html"
+   ],
+   "note": "Le producteur conseille un prunier ou un abricotier à proximité."
+  },
+  "flor": {
+   "v": "un peu après les abricotiers",
+   "src": [
+    "https://www.gaujard.fr/abricots/1134-abricotier-noir-blackforest.html"
+   ],
+   "note": "Protège des gelées tardives."
+  },
+  "recolte": {
+   "v": "juillet",
+   "src": [
+    "https://www.gaujard.fr/abricots/1134-abricotier-noir-blackforest.html"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "3 à 4 m, porte-greffe myrobolan",
+   "src": [
+    "https://www.gaujard.fr/abricots/1134-abricotier-noir-blackforest.html"
+   ],
+   "note": ""
+  },
+  "gout": {
+   "v": "peau violacée à noire, chair rougeâtre au goût d'abricot",
+   "src": [
+    "https://www.gaujard.fr/abricots/1134-abricotier-noir-blackforest.html"
+   ],
+   "note": ""
+  }
+ },
+ "olivier": {
+  "pollin": {
+   "v": "autofertile",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2013/09/Fiche-Olivier-pr-visite.pdf"
+   ],
+   "note": "Variété Aglandau : autofertile ; une 2e variété améliore la récolte."
+  },
+  "rust": {
+   "v": "-10 °C sans dégât, -12 °C exceptionnellement, -15 °C fatal",
+   "src": [
+    "https://www.truffaut.com/olivier-varietes-plantation-culture.html",
+    "https://pepinieredubosc.fr/nos-arbres-fruitiers/olivier-aglandau-ou-aglandaou/"
+   ],
+   "note": "Aglandau : parmi les oliviers les plus résistants au froid (Pépinière du Bosc)."
+  },
+  "flor": {
+   "v": "fin mai-juin",
+   "src": [
+    "https://www.truffaut.com/olivier-varietes-plantation-culture.html",
+    "https://www.grab.fr/wp-content/uploads/2013/09/Fiche-Olivier-pr-visite.pdf"
+   ],
+   "note": "3 juin pour Aglandau à Maillane."
+  },
+  "recolte": {
+   "v": "novembre à décembre",
+   "src": [
+    "https://www.grab.fr/wp-content/uploads/2013/09/Fiche-Olivier-pr-visite.pdf"
+   ],
+   "note": ""
+  }
+ },
+ "chayotte": {
+  "recolte": {
+   "v": "octobre à novembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/christophine-chayotte-verte-nt"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Christophine verte »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/christophine-chayotte-verte-nt"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "régulier",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/christophine-chayotte-verte-nt"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/christophine-chayotte-verte-nt"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "500 à 800 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/christophine-chayotte-verte-nt"
+   ],
+   "note": ""
+  }
+ },
+ "poivron": {
+  "semis": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Corno di toro rosso »."
+  },
+  "recolte": {
+   "v": "juillet à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Corno di toro rosso »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "60 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poivron-corno-di-toro-rosso-ab"
+   ],
+   "note": ""
+  }
+ },
+ "concombre": {
+  "semis": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Vert long maraîcher »."
+  },
+  "recolte": {
+   "v": "juin à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Vert long maraîcher »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "100 à 150 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/concombre-vert-long-maraicher-ab"
+   ],
+   "note": ""
+  }
+ },
+ "melon": {
+  "semis": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Charentais »."
+  },
+  "recolte": {
+   "v": "juin à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Charentais »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "100 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/melon-charentais-ab"
+   ],
+   "note": ""
+  }
+ },
+ "carotte": {
+  "semis": {
+   "v": "mars à juillet",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Nantaise 2 »."
+  },
+  "recolte": {
+   "v": "juillet à novembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Nantaise 2 »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "sableux",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "30 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/carotte-nantaise-2-ab"
+   ],
+   "note": ""
+  },
+  "sol_lourd": {
+   "v": "en terre argileuse, racines fourchues : préférer les variétés courtes",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/carotte.html",
+    "https://www.rtbf.be/article/tout-savoir-sur-les-carottes-10761705"
+   ],
+   "note": ""
+  }
+ },
+ "radis": {
+  "semis": {
+   "v": "février à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « De 18 jours »."
+  },
+  "recolte": {
+   "v": "mars à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « De 18 jours »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "sableux",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "20 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/radis-de-18-jours-ab"
+   ],
+   "note": ""
+  }
+ },
+ "pomme-de-terre": {
+  "plant": {
+   "v": "avril à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/pomme-de-terre-charlotte-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Charlotte »."
+  },
+  "recolte": {
+   "v": "août à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/pomme-de-terre-charlotte-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Charlotte »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/pomme-de-terre-charlotte-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, en cas de sécheresse",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/pomme-de-terre-charlotte-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "léger, profond",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/pomme-de-terre-charlotte-ab"
+   ],
+   "note": ""
+  }
+ },
+ "oignon": {
+  "semis": {
+   "v": "février à avril",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Jaune paille des Vertus »."
+  },
+  "recolte": {
+   "v": "juillet à août",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Jaune paille des Vertus »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "faible, en cas de sécheresse",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "sableux",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "30 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/oignon-jaune-paille-des-vertus-ab"
+   ],
+   "note": ""
+  }
+ },
+ "tomate-coeur-de-boeuf": {
+  "semis": {
+   "v": "février à avril",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/tomate-coeur-de-boeuf-rouge-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Cœur de bœuf rouge »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/tomate-coeur-de-boeuf-rouge-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/tomate-coeur-de-boeuf-rouge-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "tous types de sols",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/tomate-coeur-de-boeuf-rouge-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "120 à 200 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/tomate-coeur-de-boeuf-rouge-ab"
+   ],
+   "note": ""
+  }
+ },
+ "courgette": {
+  "semis": {
+   "v": "avril à juin",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Verte non coureuse des maraîchers »."
+  },
+  "recolte": {
+   "v": "juin à août",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Verte non coureuse des maraîchers »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "100 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courgette-verte-non-coureuse-des-maraichers-ab"
+   ],
+   "note": ""
+  }
+ },
+ "courge-butternut": {
+  "semis": {
+   "v": "avril à juin",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Butternut »."
+  },
+  "recolte": {
+   "v": "septembre à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Butternut »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "200 cm (coureuse)",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/courge-musquee-butternut-ab"
+   ],
+   "note": ""
+  }
+ },
+ "haricot-a-rames": {
+  "recolte": {
+   "v": "juillet à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-a-rames-phenomene-mangetout-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Phénomène (mangetout) »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-a-rames-phenomene-mangetout-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-a-rames-phenomene-mangetout-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-a-rames-phenomene-mangetout-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "200 à 300 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-a-rames-phenomene-mangetout-ab"
+   ],
+   "note": ""
+  }
+ },
+ "haricot-nain": {
+  "recolte": {
+   "v": "juillet à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-nain-talisman-filet-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Talisman (filet) »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-nain-talisman-filet-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-nain-talisman-filet-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-nain-talisman-filet-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "40 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/haricot-nain-talisman-filet-ab"
+   ],
+   "note": ""
+  }
+ },
+ "laitue": {
+  "semis": {
+   "v": "février à juillet",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Batavia blonde de Paris »."
+  },
+  "recolte": {
+   "v": "avril à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Batavia blonde de Paris »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "20 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/laitue-batavia-blonde-de-paris-ab"
+   ],
+   "note": ""
+  }
+ },
+ "epinard": {
+  "semis": {
+   "v": "mars à mai, août à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Géant d'hiver »."
+  },
+  "recolte": {
+   "v": "avril à juin, octobre à décembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Géant d'hiver »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "argileux",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "50 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/epinard-geant-d-hiver-ab"
+   ],
+   "note": ""
+  }
+ },
+ "ail": {
+  "plant": {
+   "v": "janvier, octobre à décembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Violet Germidour »."
+  },
+  "recolte": {
+   "v": "mai à juillet",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Violet Germidour »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, hebdomadaire",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "30 à 60 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/ail-violet-germidour-ab"
+   ],
+   "note": ""
+  }
+ },
+ "aubergine": {
+  "semis": {
+   "v": "mars à avril",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Violetta lunga 3 »."
+  },
+  "recolte": {
+   "v": "juillet à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Violetta lunga 3 »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "50 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/aubergine-violetta-lunga-3-ab"
+   ],
+   "note": ""
+  }
+ },
+ "poireau": {
+  "semis": {
+   "v": "mars",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « D'hiver de Saint-Victor »."
+  },
+  "recolte": {
+   "v": "août à décembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « D'hiver de Saint-Victor »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "75 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/poireau-d-hiver-de-saint-victor-ab"
+   ],
+   "note": ""
+  }
+ },
+ "fraisier": {
+  "plant": {
+   "v": "février à mai, septembre à novembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Gariguette »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "régulier",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "20 à 30 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "mai à juin (non remontant)",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/fraisier-gariguette-ab-plant"
+   ],
+   "note": ""
+  }
+ },
+ "rhubarbe": {
+  "plant": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/rhubarbe-victoria-ab-plant"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Victoria »."
+  },
+  "recolte": {
+   "v": "mai à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/rhubarbe-victoria-ab-plant"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Victoria »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/rhubarbe-victoria-ab-plant"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, en cas de sécheresse",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/rhubarbe-victoria-ab-plant"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "frais, riche",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/rhubarbe-victoria-ab-plant"
+   ],
+   "note": ""
+  }
+ },
+ "basilic": {
+  "semis": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Grand vert »."
+  },
+  "recolte": {
+   "v": "juin à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Grand vert »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "30 cm",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/basilic-simple-grand-vert-ab"
+   ],
+   "note": ""
+  }
+ },
+ "thym": {
+  "semis": {
+   "v": "mars à juin",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/thym-commun-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Commun »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/thym-commun-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "faible, en cas de sécheresse",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/thym-commun-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "calcaire",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/thym-commun-ab"
+   ],
+   "note": ""
+  }
+ },
+ "menthe": {
+  "plant": {
+   "v": "mars à juin, septembre à novembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Verte »."
+  },
+  "recolte": {
+   "v": "mai à octobre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Verte »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, quotidien",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "frais, humifère",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": ""
+  },
+  "sensible": {
+   "v": "envahissante (racines traçantes)",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/menthe-verte-ab-plant"
+   ],
+   "note": ""
+  }
+ },
+ "persil": {
+  "semis": {
+   "v": "mars à septembre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/persil-plat-commun-2-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Plat commun »."
+  },
+  "recolte": {
+   "v": "toute l'année",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/persil-plat-commun-2-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Plat commun »."
+  },
+  "expo": {
+   "v": "soleil ou mi-ombre",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/persil-plat-commun-2-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "modéré, hebdomadaire",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/persil-plat-commun-2-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainé",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/persil-plat-commun-2-ab"
+   ],
+   "note": ""
+  }
+ },
+ "lavande": {
+  "semis": {
+   "v": "mars à mai",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/lavande-officinale-ab"
+   ],
+   "note": "Ferme de Sainte Marthe, variété « Officinale »."
+  },
+  "expo": {
+   "v": "soleil",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/lavande-officinale-ab"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "faible, en cas de sécheresse",
+   "src": [
+    "https://www.fermedesaintemarthe.com/products/lavande-officinale-ab"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "léger, drainé, plutôt calcaire ; redoute les sols argileux mal drainés",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/lavande.html",
+    "https://www.jardiner-malin.fr/fiche/lavandin.html",
+    "https://www.fermedesaintemarthe.com/products/lavande-officinale-ab"
+   ],
+   "note": ""
+  },
+  "rust": {
+   "v": "-15 °C (jusqu'à -20 °C)",
+   "src": [
+    "https://www.truffaut.com/lavande-plantation-entretien.html",
+    "https://www.jardiner-malin.fr/fiche/lavande.html"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "aime les sols calcaires",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/lavande.html",
+    "https://www.jardiner-malin.fr/fiche/lavandin.html",
+    "https://www.fermedesaintemarthe.com/products/lavande-officinale-ab"
+   ],
+   "note": ""
+  }
+ },
+ "arbre-de-judee": {
+  "rust": {
+   "v": "-15 °C",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/cercis-siliquastrum.html",
+    "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/fiches-essences-du-guide-des-essences-de-paris/files/2d31d0751d29611f16950bf86ef5c200"
+   ],
+   "note": "Guide des essences de Paris : −10 à −14 °C."
+  },
+  "sech": {
+   "v": "très résistant à la sécheresse et à la chaleur",
+   "src": [
+    "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/fiches-essences-du-guide-des-essences-de-paris/files/2d31d0751d29611f16950bf86ef5c200",
+    "https://jardin-thuret.hub.inrae.fr/media/fiches-especes-ardem-2023/cercis-siliquastrum.pdf"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "tout type bien drainé, pas de sol gorgé d'eau ; accepte le calcaire",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/cercis-siliquastrum.html",
+    "https://www.lapetiteloiterie.fr/lpl/wp-content/uploads/cercis-siliquastrum.pdf"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "6 à 8 m",
+   "src": [
+    "https://www.jardiner-malin.fr/fiche/arbre-de-judee-cercis.html"
+   ],
+   "note": ""
+  }
+ },
+ "hortensia": {
+  "rust": {
+   "v": "RHS H5 (−10 à −15 °C)",
+   "src": [
+    "https://www.rhs.org.uk/plants/40792/hydrangea-macrophylla-h/details"
+   ],
+   "note": ""
+  },
+  "expo": {
+   "v": "mi-ombre (soleil supporté)",
+   "src": [
+    "https://www.rhs.org.uk/plants/40792/hydrangea-macrophylla-h/details",
+    "https://www.rhs.org.uk/plants/40839/hydrangea-macrophylla-la-marne-h/details"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "argileux ou limoneux, frais mais drainé",
+   "src": [
+    "https://www.rhs.org.uk/plants/40839/hydrangea-macrophylla-la-marne-h/details"
+   ],
+   "note": ""
+  },
+  "taille": {
+   "v": "1 à 1,5 m",
+   "src": [
+    "https://www.rhs.org.uk/plants/40839/hydrangea-macrophylla-la-marne-h/details"
+   ],
+   "note": ""
+  },
+  "calc": {
+   "v": "couleur selon le pH",
+   "src": [
+    "https://espacepourlavie.ca/carnet-horticole/hydrangee-grandes-feuilles",
+    "https://www.jardiner-malin.fr/fiche/hortensia-bleu-azur.html"
+   ],
+   "note": "Bleu en sol acide (pH 5 à 5,5), rose en sol calcaire."
+  }
+ },
+ "arbre-a-papillons": {
+  "invasive": {
+   "v": "espèce exotique envahissante dans l'Hexagone",
+   "src": [
+    "https://ofb.gouv.fr/especes/buddleia-du-pere-david-buddleja-davidii",
+    "https://especes-exotiques-envahissantes.fr/wp-content/uploads/2023/07/fiche_espece_buddleia_vf.pdf"
+   ],
+   "note": "Office français de la biodiversité."
+  }
+ },
+ "tomate-cerise": {
+  "semis": {
+   "v": "mars à avril, au chaud (20 °C)",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": "Alsagarden, variété « Délice du Jardinier » (Gardener's Delight)."
+  },
+  "plant": {
+   "v": "en pleine terre après les gelées",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": ""
+  },
+  "recolte": {
+   "v": "été, environ 5 mois après le semis",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": ""
+  },
+  "expo": {
+   "v": "plein soleil",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": ""
+  },
+  "eau": {
+   "v": "arrosage normal",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": ""
+  },
+  "sol": {
+   "v": "drainant et riche",
+   "src": [
+    "https://www.alsagarden.com/boutique/tomate-cerise-delice-du-jardinier-graines/"
+   ],
+   "note": ""
+  }
+ },
+ "_commune-toulouse": {
+  "sols": {
+   "v": "calcaire sur les coteaux (terreforts), plutôt acide sur les terrasses de la Garonne (boulbènes)",
+   "src": [
+    "https://www.geoportail.gouv.fr/donnees/carte-des-sols",
+    "https://www.afes.fr/wp-content/uploads/2023/04/EGS_21_1_2106_Guiresse_77_84_web.pdf",
+    "https://www.geoforum.fr/applications/core/interface/file/attachment.php?id=331321"
+   ],
+   "note": "Référentiel régional pédologique de Midi-Pyrénées (INRAE, 1/250 000) ; boulbènes = sols acides, limoneux et battants des terrasses alluviales."
+  }
+ }
+}

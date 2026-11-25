@@ -1,0 +1,6 @@
+---
+import Base from "../layouts/Base.astro";
+import { pageFor, metaFor } from "../lib/jardin.js";
+const m = metaFor("accueil");
+---
+<Base id="accueil" title={m.title} desc={m.desc} html={pageFor("accueil")} />

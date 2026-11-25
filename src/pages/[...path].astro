@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import { pageFor, metaFor, allPageIds, url } from "../lib/jardin.js";
+export function getStaticPaths() {
+  const B = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return allPageIds().filter(id => id !== "accueil").map(id => ({ params: { path: url(id).replace(B, "").replace(/^\/|\/$/g, "") }, props: { id } }));
+}
+const { id } = Astro.props;
+const m = metaFor(id);
+---
+<Base id={id} title={m.title} desc={m.desc} html={pageFor(id)} />

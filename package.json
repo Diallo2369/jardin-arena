@@ -1,0 +1,16 @@
+{
+  "name": "jardinarena",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node scripts/check-data.mjs",
+    "build": "node scripts/check-data.mjs && astro build && node scripts/postbuild.mjs",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/figtree": "^5.2.0",
+    "astro": "^7.4.12"
+  }
+}
