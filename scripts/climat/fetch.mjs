@@ -7,7 +7,8 @@ import path from "path";
 const RAW = "data/raw";
 fs.mkdirSync(path.join(RAW, "meteo"), { recursive: true });
 const MF = "https://meteofrance.s3.sbg.io.cloud.ovh.net/data/synchro_ftp/BASE/QUOT/";
-const DEPS = [...Array.from({ length: 95 }, (_, i) => String(i + 1).padStart(2, "0")).filter(d => d !== "20"), "2A", "2B"];
+// la Corse figure sous le code 20 dans les fichiers Météo-France
+const DEPS = Array.from({ length: 95 }, (_, i) => String(i + 1).padStart(2, "0"));
 const only = process.env.DEPS ? process.env.DEPS.split(",") : null;   // pour les essais : DEPS=31,67
 
 async function get(url, tries = 4) {
@@ -34,7 +35,7 @@ await Promise.all(Array.from({ length: 6 }, () => worker(q)));
 console.log(`Météo-France : ${n} fichiers`);
 // 2. Communes (métropole), avec centre, codes postaux et population
 const com = await (await get("https://geo.api.gouv.fr/communes?fields=nom,code,codesPostaux,centre,population,codeDepartement&format=json&geometry=centre")).json();
-const metro = com.filter(c => c.centre && !c.codeDepartement.startsWith("97") && (!only || only.includes(c.codeDepartement)));
+const metro = com.filter(c => c.centre && !c.codeDepartement.startsWith("97") && (!only || only.includes(c.codeDepartement.replace(/^2[AB]$/, "20"))));
 // 3. Altitude du centre de chaque commune (par paquets)
 const ALTI = "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json";
 let alts = {}; const altFile = path.join(RAW, "altitudes.json");
