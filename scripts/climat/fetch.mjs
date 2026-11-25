@@ -42,16 +42,19 @@ const ALTI = "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.js
 let alts = {}; const altFile = path.join(RAW, "altitudes-mairie.json");
 if (fs.existsSync(altFile)) alts = JSON.parse(fs.readFileSync(altFile, "utf8"));
 const todo = metro.filter(c => alts[c.code] == null);
-for (let i = 0; i < todo.length; i += 200) {
-  const part = todo.slice(i, i + 200);
+// paquets de 200 points ; un paquet refusé (zone trop étendue) est redemandé par paquets de 20
+const paquets = []; for (let i = 0; i < todo.length; i += 200) paquets.push(todo.slice(i, i + 200));
+for (let i = 0; i < paquets.length; i++) {
+  const part = paquets[i];
   const body = { lon: part.map(c => c.pos[0]).join("|"), lat: part.map(c => c.pos[1]).join("|"), resource: "ign_rge_alti_wld", zonly: "true", delimiter: "|" };
   try {
     let j = null;
     for (let t = 1; t <= 3 && !j; t++) { try { const r = await fetch(ALTI, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }); if (r.ok) j = await r.json(); else if (t === 3) console.log("  altitude : HTTP " + r.status, (await r.text()).slice(0, 200)); } catch (e) { if (t === 3) throw e; } if (!j) await new Promise(r => setTimeout(r, 1500 * t)); }
+    if (!j && part.length > 20) { for (let k = 0; k < part.length; k += 20) paquets.push(part.slice(k, k + 20)); continue; }
     const z = (j && j.elevations) || [];
     part.forEach((c, k) => { const v = typeof z[k] === "number" ? z[k] : z[k]?.z; if (typeof v === "number" && v > -100) alts[c.code] = Math.round(v); });
   } catch (e) { console.log("  altitude : échec d'un paquet", e.message); }
-  if (i % 4000 === 0) console.log(`  altitudes : ${Math.min(i + 200, todo.length)} / ${todo.length}`);
+  if (i % 20 === 0) console.log(`  altitudes : paquet ${i + 1} / ${paquets.length}`);
 }
 fs.writeFileSync(altFile, JSON.stringify(alts));
 fs.writeFileSync(path.join(RAW, "communes.json"), JSON.stringify(metro.map(c => ({ code: c.code, nom: c.nom, dep: c.codeDepartement, cp: (c.codesPostaux || []).sort()[0] || "", pop: c.population || 0, lon: c.pos[0], lat: c.pos[1], mairie: !!c.mairie, alt: alts[c.code] ?? null }))));

@@ -37,5 +37,5 @@ jobs:
         run: |
           echo "Pages : $(find dist -name index.html | wc -l)"
           echo "Fichiers : $(find dist -type f | wc -l)"
-          du -sh dist dist/que-planter dist/quand-planter dist/data
+          du -sh --apparent-size dist dist/que-planter dist/quand-planter dist/data dist/plantes
           for p in que-planter/toulouse-31555 que-planter/nice-06088 que-planter/chamonix-mont-blanc-74056 que-planter/toulouse-31555/novembre quand-planter/tomate/toulouse-31555; do echo "$(wc -c < dist/$p/index.html) $p"; done
