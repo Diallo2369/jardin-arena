@@ -240,8 +240,9 @@ const argNiveau=c=>!c||!c.argile?null:c.argile.moyenOuFort>=50?"souvent argileux
 const debutQuinzaine=n=>{if(!n)return "après la mi-mai, sous abri";const d=new Date(Date.UTC(2025,0,n));return (d.getUTCDate()<=15?"début ":"mi-")+MOIS[d.getUTCMonth()];};
 
 /* Verdict d'une plante pour la commune et les réponses */
-const ANS={expo:null,sol:null};
-try{const s=JSON.parse(localStorage.getItem("jardinarena-jardin")||"{}");if(s.expo)ANS.expo=s.expo;if(s.sol)ANS.sol=s.sol;}catch(e){}
+const ANS={expo:null,sol:[]};
+try{const s=JSON.parse(localStorage.getItem("jardinarena-jardin")||"{}");if(s.expo)ANS.expo=s.expo;if(s.sol)ANS.sol=[].concat(s.sol);}catch(e){}
+const S=k=>ANS.sol.includes(k), aSol=()=>ANS.sol.length>0;
 const memoJardin=()=>{try{localStorage.setItem("jardinarena-jardin",JSON.stringify(ANS));}catch(e){}};
 const SOLS={argileux:"argileuse",calcaire:"calcaire",acide:"acide",leger:"légère, sableuse"};
 /* Une caractéristique de la plante est-elle vérifiée par une source ? (les données climat Météo-France le sont toujours) */
@@ -278,24 +279,24 @@ function verdict(p){
   // Sol
   K="argile";
   const argCommune = !!(COM&&COM.argile&&COM.argile.moyenOuFort>=50);
-  const argileux = ANS.sol==="argileux"?true:ANS.sol==="leger"?false:argCommune;
-  const terre = ANS.sol?"Votre terre est argileuse":`Sol souvent argileux à ${COM?COM.nom:"votre commune"}`;
+  const argileux = S("argileux")?true:S("leger")?false:argCommune;
+  const terre = S("argileux")?"Votre terre est argileuse":`Sol souvent argileux à ${COM?COM.nom:"votre commune"}`;
   if(argileux){ if(p.argile===0) R.push(["warn",`${terre} : cette plante craint l'eau stagnante. Plantez-la en butte ou ajoutez du gravier et du sable.`]);
                else if(p.argile===2) R.push(["ok","S'accommode d'un sol argileux."]); }
-  if(ANS.sol==="leger"&&p.sech===1) R.push(["warn","Terre légère qui sèche vite : arrosez souvent l'été et paillez le pied."]);
+  if(S("leger")&&p.sech===1) R.push(["warn","Terre légère qui sèche vite : arrosez souvent l'été et paillez le pied."]);
   // Calcaire et acidité
   K="calc";
   if(p.calc==="acide"){
-    if(ANS.sol==="calcaire") R.push(["bad","Votre terre est calcaire : il lui faut une terre acide (pH 4,5 à 5,5). Cultivez-le en grand bac rempli de terre de bruyère."]);
-    else if(ANS.sol==="acide") R.push(["ok","Votre terre acide lui convient."]);
+    if(S("calcaire")) R.push(["bad","Votre terre est calcaire : il lui faut une terre acide (pH 4,5 à 5,5). Cultivez-le en grand bac rempli de terre de bruyère."]);
+    else if(S("acide")) R.push(["ok","Votre terre acide lui convient."]);
     else R.push(["warn",`Il lui faut une terre acide (pH 4,5 à 5,5)${COM&&COM.sols?` ; à ${COM.nom}, la terre est ${COM.sols.resume.replace(/ \((terreforts|boulbènes)\)/g,"")}`:""} : vérifiez la vôtre, ou plantez-le en bac de terre de bruyère.`]); }
   else if(p.calc==="craint"){
-    if(ANS.sol==="calcaire") R.push(["warn",`Terre calcaire : risque de feuilles qui jaunissent (chlorose). ${p.calcNote||""}`.trim()]);
-    else if(!ANS.sol) R.push(["info",`Craint les terres calcaires (feuilles qui jaunissent). ${p.calcNote||""}`.trim()]); }
-  else if(p.calc==="aime"){ if(ANS.sol==="calcaire") R.push(["ok","Supporte bien une terre calcaire."]); }
+    if(S("calcaire")) R.push(["warn",`Terre calcaire : risque de feuilles qui jaunissent (chlorose). ${p.calcNote||""}`.trim()]);
+    else if(!S("acide")) R.push(["info",`Craint les terres calcaires (feuilles qui jaunissent). ${p.calcNote||""}`.trim()]); }
+  else if(p.calc==="aime"){ if(S("calcaire")) R.push(["ok","Supporte bien une terre calcaire."]); }
   else if(p.calc==="couleur"){
-    if(ANS.sol==="calcaire") R.push(["info","Terre calcaire : fleurs roses plutôt que bleues. Pour du bleu, plantez-le en bac de terre de bruyère."]);
-    else if(ANS.sol==="acide") R.push(["ok","Terre acide : ses fleurs pourront être bleues."]);
+    if(S("calcaire")) R.push(["info","Terre calcaire : fleurs roses plutôt que bleues. Pour du bleu, plantez-le en bac de terre de bruyère."]);
+    else if(S("acide")) R.push(["ok","Terre acide : ses fleurs pourront être bleues."]);
     else R.push(["info","Fleurs bleues en terre acide, roses en terre calcaire."]); }
   // Besoin en froid
   K="froid";
@@ -503,7 +504,7 @@ function carte(p,v){
     ${p.gout&&p.gout!=="—"&&p.cat!=="ornement"?`<span class="taste">${p.gout}</span>`:""}
     ${issue?`<span class="${v.lvl==="warn"?"tip-w":"tip-b"}">${issue[1]}</span>`:""}</a>`;
 }
-const FILTRE={cat:"tout",vue:null,rare:false,q:""}; W.EXP=new Set();
+const FILTRE={cat:"tout",vue:null,rare:false,q:"",terre:false}; W.EXP=new Set();
 const CATORD=["fruitier","legume","aromatique","ornement"];
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 function filtrer(){
@@ -525,13 +526,17 @@ function listeHTML(){
     (bad.length?`<details class="fold"${!ok.length&&!warn.length?" open":""}><summary>À éviter dans votre jardin (${bad.length})</summary><div class="in">${SSR?`<ul class="plite">${bad.map(ligneLite).join("")}</ul>`:`<div class="plist">${bad.map(x=>carte(x.p,x.v)).join("")}</div>`}</div></details>`:"");
   return {html:html||`<div class="empty">Aucune plante ne correspond. <button class="linkbtn" onclick="resetF()">Effacer les filtres</button></div>`, n:ok.length+warn.length+bad.length};
 }
-function filtresActifs(){return (FILTRE.cat!=="tout")+(!!ANS.expo)+(!!ANS.sol)+FILTRE.rare+(!!FILTRE.vue)+(!!FILTRE.q.trim());}
+function filtresActifs(){return (FILTRE.cat!=="tout")+(!!ANS.expo)+aSol()+FILTRE.rare+(!!FILTRE.vue)+(!!FILTRE.q.trim());}
 function barreHTML(){
   const pill=(on,act,txt,extra="")=>`<button class="fp ${extra}" aria-pressed="${on}" onclick="${act}">${txt}</button>`;
   return `<div class="frow1"><label class="fsearch"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="fq" type="search" placeholder="Chercher une plante" aria-label="Chercher une plante" value="${FILTRE.q.replace(/"/g,"&quot;")}" oninput="setQ(this.value)"></label><span class="fcount" id="fcount"></span>${filtresActifs()?`<button class="linkbtn" onclick="resetF()">✕ Effacer</button>`:""}</div>
    <div class="frow2">${[["tout","Tout"],...Object.entries(CATL)].map(([k,t])=>pill(FILTRE.cat===k,`setCat('${k}')`,t)).join("")}
    <span class="fsep"></span>${pill(FILTRE.rare,"toggleRare()","★ Rares","fp-rare")}</div>
-   <div class="frow2 frow3"><span class="flab">Mon jardin</span>${[["soleil","full","Soleil"],["mi-ombre","half","Mi-ombre"],["ombre","none","Ombre"]].map(([k,s,t])=>pill(ANS.expo===k,`setExpo('${k}')`,`<span class="sunico ${s}"></span>${t}`)).join("")}<span class="fsep"></span><span class="flab">Terre</span>${Object.entries(SOLS).map(([k,t])=>pill(ANS.sol===k,`setSol('${k}')`,k==="leger"?"Légère":t.charAt(0).toUpperCase()+t.slice(1))).join("")}<a class="flab-q" href="#actu-connaitre-sa-terre" title="Je ne sais pas : 3 tests simples">?</a></div>`;
+   <div class="frow2 frow3"><span class="flab">Mon jardin</span>${[["soleil","full","Soleil"],["mi-ombre","half","Mi-ombre"],["ombre","none","Ombre"]].map(([k,s,t])=>pill(ANS.expo===k,`setExpo('${k}')`,`<span class="sunico ${s}"></span>${t}`)).join("")}</div>
+   <div class="terre-row"><button class="terre-lien" aria-expanded="${!!FILTRE.terre}" onclick="toggleTerre()">${aSol()?`Terre ${ANS.sol.map(k=>SOLS[k]).join(" et ")}`:"Vous connaissez votre terre ?"} <span class="chev" aria-hidden="true"></span></button></div>
+   ${FILTRE.terre?`<div class="terre-panel"><p class="note">Facultatif : précisez votre terre si vous la connaissez, les conseils s'adaptent. Plusieurs choix possibles.</p>
+     <div class="terre-choix">${[["argileux","Argileuse","colle l'hiver, se fend l'été"],["calcaire","Calcaire","mousse au contact du vinaigre"],["acide","Acide","mousse au bicarbonate"],["leger","Légère, sableuse","s'effrite, sèche vite"]].map(([k,t,d])=>`<button class="tc" aria-pressed="${S(k)}" onclick="setSol('${k}')"><b>${t}</b><small>${d}</small></button>`).join("")}</div>
+     <a class="note" href="#actu-connaitre-sa-terre">Je ne sais pas : 3 tests simples pour la connaître</a></div>`:""}`;
 }
 function majListe(scroll){
   const r=listeHTML(); const L=$("#plist-wrap"); if(!L)return;
@@ -546,9 +551,12 @@ function majListe(scroll){
 W.setQ=v=>{FILTRE.q=v;majListe(false);};
 W.setCat=k=>{FILTRE.cat=k;majListe(false);};
 W.setExpo=k=>{ANS.expo=ANS.expo===k?null:k;memoJardin();majListe(false);};
-W.setSol=k=>{ANS.sol=ANS.sol===k?null:k;memoJardin();majListe(false);};
+// argileuse / légère et calcaire / acide s'excluent ; les autres se cumulent
+const CONTRAIRE={argileux:"leger",leger:"argileux",calcaire:"acide",acide:"calcaire"};
+W.setSol=k=>{ANS.sol=S(k)?ANS.sol.filter(x=>x!==k):[...ANS.sol.filter(x=>x!==CONTRAIRE[k]),k];memoJardin();majListe(false);};
+W.toggleTerre=()=>{FILTRE.terre=!FILTRE.terre;majListe(false);};
 W.toggleRare=()=>{FILTRE.rare=!FILTRE.rare;majListe(false);};
-W.resetF=()=>{FILTRE.cat="tout";FILTRE.vue=null;FILTRE.rare=false;FILTRE.q="";ANS.expo=null;ANS.sol=null;memoJardin();majListe(false);};
+W.resetF=()=>{FILTRE.cat="tout";FILTRE.vue=null;FILTRE.rare=false;FILTRE.q="";ANS.expo=null;ANS.sol=[];memoJardin();majListe(false);};
 
 
 function resumeClimat(c){
@@ -662,7 +670,7 @@ function pagePlante(p,modal){
   const v=verdict(p), c=COM, pol=p.pollin||{type:"sans",avec:[]};
   const parts=pol.avec.map(id=>byId(id)||id);
   const pchip=q=>typeof q==="string"?`<span class="partner"><span class="av fruitier">${ICO.fruitier}</span>${q}</span>`:`<a class="partner" href="#plante-${q.id}">${av(q)}${nomComplet(q)}</a>`;
-  const ou=(ANS.expo||ANS.sol)?"dans votre jardin":c?`à ${c.nom}`:""; const headline={ok:`Bon choix ${ou}`,warn:`Possible ${ou}, avec une précaution`,bad:`À éviter ${ou}`}[v.lvl];
+  const ou=(ANS.expo||aSol())?"dans votre jardin":c?`à ${c.nom}`:""; const headline={ok:`Bon choix ${ou}`,warn:`Possible ${ou}, avec une précaution`,bad:`À éviter ${ou}`}[v.lvl];
   const first=v.R.find(r=>r[0]===v.lvl&&v.lvl!=="ok");
   const keys=[["Ensoleillement",p.expo.map(e=>e==="soleil"?"Soleil":e==="mi-ombre"?"Mi-ombre":"Ombre").join(", ")],["Planter",quandPlanter(p)||(p.semis&&p.semis.length?"Semer "+moisRange(p.semis):"—")],["Récolte",p.recolte&&p.recolte.length?moisRange(p.recolte):"—"],["Taille adulte",p.taille.split(/, (?=\d)|;/)[0]]];
   const spec=[["Port",p.port],["Taille adulte",p.taille],p.florGroupe&&p.florGroupe!=="—"?["Floraison",p.florGroupe]:null,["Froid supporté",p.tendre?"Gèle à 0 °C":nf(p.rust??p.rustL)+" °C"],["Sécheresse",["","Résiste peu","Résiste moyennement","Résiste bien"][p.sech]],["Chaleur",["","La craint","Moyenne","La supporte bien"][p.chal]],["Sol argileux",["Craint l'humidité","Avec un bon drainage","Bien"][p.argile]],p.froid?["Besoin de froid l'hiver",p.froid[0].toUpperCase()+p.froid.slice(1)]:null,p.gout&&p.gout!=="—"?["Description",p.gout]:null,p.usage?["Usage",p.usage]:null,p.cons&&p.cons!=="—"?["Conservation",p.cons]:null,p.eau?["Arrosage",p.eau]:null,p.sensible&&p.sensible!=="—"?["Points faibles",p.sensible]:null].filter(Boolean);
@@ -688,7 +696,7 @@ function pagePlante(p,modal){
       const todo=v.R.filter(r=>r[0]!=="ok"&&!/voir plus bas|sert seulement à polliniser/.test(r[1])), good=v.R.filter(r=>r[0]==="ok");
       return `<h2 style="margin-top:48px">${todo.length?`À savoir avant de planter à ${c.nom}`:`Rien de particulier à ${c.nom}`}</h2>
       ${todo.length?`<ul class="reasons">${todo.map(li).join("")}</ul>`:""}
-      ${ANS.expo&&ANS.sol?"":`<p class="note" style="margin-top:10px">Pour un conseil complet, indiquez ${!ANS.expo&&!ANS.sol?"l'ensoleillement et la terre":!ANS.expo?"l'ensoleillement":"la terre"} de votre jardin sur la <a href="#commune-${c.slug}">page de ${c.nom}</a>.</p>`}
+      ${ANS.expo?"":`<p class="note" style="margin-top:10px">Pour un conseil complet, indiquez ${"l'ensoleillement"} de votre jardin sur la <a href="#commune-${c.slug}">page de ${c.nom}</a>.</p>`}
       ${good.length?`<details class="pmore" style="margin-top:14px"><summary>Voir ${good.length>1?`les ${good.length} points favorables`:"le point favorable"}<span class="chev" aria-hidden="true"></span></summary><ul class="reasons">${good.map(li).join("")}</ul></details>`:""}`;})()}
     <details class="srcbox"><summary><span><b>Caractéristiques</b> · froid, chaleur, sécheresse, goût, conservation…</span><span class="chev" aria-hidden="true"></span></summary>
     <dl class="specs">${spec.map(([k,x])=>`<div><dt>${k}</dt><dd>${gl(x)}</dd></div>`).join("")}</dl></details>
@@ -942,10 +950,10 @@ const SAISON_FRUITIERS=[11,12,1,2,3];
 
 // Rappel visible quand les réponses « Mon jardin » filtrent la liste (elles sont mémorisées d'une page à l'autre)
 const EXPL={soleil:"plein soleil","mi-ombre":"mi-ombre",ombre:"ombre"};
-function jardinActif(){ if(SSR||(!ANS.expo&&!ANS.sol)) return "";
-  const t=[ANS.expo&&EXPL[ANS.expo],ANS.sol&&"terre "+SOLS[ANS.sol]].filter(Boolean).join(", ");
+function jardinActif(){ if(SSR||(!ANS.expo&&!aSol())) return "";
+  const t=[ANS.expo&&EXPL[ANS.expo],aSol()&&"terre "+ANS.sol.map(k=>SOLS[k]).join(" et ")].filter(Boolean).join(", ");
   return `<p class="jardin-actif">Liste adaptée à votre jardin : <b>${t}</b>. <button class="linkbtn" onclick="oublierJardin()">Voir pour tous les jardins</button></p>`; }
-W.oublierJardin=()=>{ANS.expo=null;ANS.sol=null;memoJardin();W.render?W.render():null;};
+W.oublierJardin=()=>{ANS.expo=null;ANS.sol=[];memoJardin();W.render?W.render():null;};
 function pageMois(c,n){
   const L=pourMois(n), suiv=n%12+1, Ls=pourMois(suiv).filter(p=>!L.includes(p));
   const grp=CATORD.map(cat=>[cat,L.filter(p=>p.cat===cat)]).filter(x=>x[1].length);
