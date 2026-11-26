@@ -940,6 +940,13 @@ const moisSlug=n=>norm(MOIS[n-1]);
 const pourMois=(n)=>P.filter(p=>((p.plant||[]).includes(n)||(p.semis||[]).includes(n)||(p.tendre&&n===Math.ceil(new Date(Date.UTC(2025,0,NUITS10)).getUTCMonth()+1)))&&verdict(p).lvl!=="bad");
 const SAISON_FRUITIERS=[11,12,1,2,3];
 
+
+// Rappel visible quand les réponses « Mon jardin » filtrent la liste (elles sont mémorisées d'une page à l'autre)
+const EXPL={soleil:"plein soleil","mi-ombre":"mi-ombre",ombre:"ombre"};
+function jardinActif(){ if(SSR||(!ANS.expo&&!ANS.sol)) return "";
+  const t=[ANS.expo&&EXPL[ANS.expo],ANS.sol&&"terre "+SOLS[ANS.sol]].filter(Boolean).join(", ");
+  return `<p class="jardin-actif">Liste adaptée à votre jardin : <b>${t}</b>. <button class="linkbtn" onclick="oublierJardin()">Voir pour tous les jardins</button></p>`; }
+W.oublierJardin=()=>{ANS.expo=null;ANS.sol=null;memoJardin();W.render?W.render():null;};
 function pageMois(c,n){
   const L=pourMois(n), suiv=n%12+1, Ls=pourMois(suiv).filter(p=>!L.includes(p));
   const grp=CATORD.map(cat=>[cat,L.filter(p=>p.cat===cat)]).filter(x=>x[1].length);
@@ -949,6 +956,7 @@ function pageMois(c,n){
   <section class="blk tight" style="padding-bottom:8px"><div class="wrap fade">
     <h1>Que planter en ${MOIS[n-1]} à ${c.nom} ?</h1>
     <p class="lead">${L.length} plantes qui réussissent à ${c.nom} et se plantent ou se sèment en ${MOIS[n-1]}${now?", c'est-à-dire maintenant":avant?", le mois prochain : de quoi préparer":""}. Choisies d'après le climat et le sol de la commune.</p>
+    ${jardinActif()}
     <nav class="mchips" aria-label="Choisir un mois">${MOIS.map((m,i)=>`<a href="#que-planter-en-${moisSlug(i+1)}-${c.slug}" class="${i+1===n?"on":""}${i+1===MOIS_COURANT?" now":""}">${["janv.","févr.","mars","avril","mai","juin","juil.","août","sept.","oct.","nov.","déc."][i]}</a>`).join("")}</nav>
   </div></section>
   ${fr&&SAISON_FRUITIERS.includes(n)?`<section class="blk tight" style="padding-top:8px;padding-bottom:0"><div class="wrap"><div class="seasonbox">

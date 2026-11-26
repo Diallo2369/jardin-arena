@@ -401,3 +401,4 @@ dialog#fiche[open]::backdrop{animation:bdIn .3s ease both}
 .plite{margin:10px 0 24px;padding-left:18px;columns:2 320px;column-gap:28px}.plite li{margin:4px 0;break-inside:avoid;font-size:15px}
 .verdict.choisir{display:block;background:var(--soft)}.verdict.choisir .search{margin-top:14px;max-width:520px}
 .sugg .sg{display:block;padding:10px 14px;color:var(--ink);text-decoration:none}.sugg .sg:hover,.sugg .sg:focus{background:var(--soft)}
+.jardin-actif{margin-top:14px;padding:10px 14px;border-radius:12px;background:var(--soft);font-size:15px;display:inline-block}.jardin-actif .linkbtn{margin-left:4px}
